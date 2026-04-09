@@ -1,0 +1,1128 @@
+Here's the full info:
+
+  ---
+  1. Get All States
+
+  GET /api/locations/states
+
+  Request:
+  GET /api/locations/states
+  // Optional query param:
+  GET /api/locations/states?country_id=101
+
+  Response:
+  [
+      { "id": 1, "name": "Andhra Pradesh" },
+      { "id": 2, "name": "Arunachal Pradesh" },
+      { "id": 27, "name": "Maharashtra" },
+      ...
+  ]
+
+  ---
+  2. Register User
+
+  POST /api/register
+
+  Request:
+  {
+      "type": "user",
+      "first_name": "Yash",
+      "last_name": "Gavali",
+      "email": "yash@example.com",
+      "phone_number": "+918985744123",
+      "password": "123456",
+      "pin_code": "411001",
+      "state_id": 27,
+      "city": "Pune"
+  }
+
+  Response:
+  {
+      "success": true,
+      "message": "User registration successful!",
+      "data": {
+          "user": {
+              "id": 312,
+              "customer_code": "KSTC0006",
+              "first_name": "Yash",
+              "last_name": "Gavali",
+              "email": "yash@example.com",
+              "phone_number": "+918985744123",
+              "pin_code": "411001",
+              "state_id": 27,
+              "city": "Pune"
+          },
+          "token": "1|abc123..."
+      }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////  DashBoard Data  Response /////
+
+{
+    "status": true,
+    "data": {
+        "movie_data": [
+            {
+                "id": 195,
+                "name": "दप्तर",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">नकळत हातातून निसटून गेलेलं बालपण परत मुठीत घेता आलं तर? दप्तराच्या कप्प्यात दडलेल्या रंगीबेरंगी आठवणींचं Reunion! </span></p>\r\n<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">&nbsp;</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/clj2qdGi5ao?si=yqHRudMDY9t9Apvw",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Marathi",
+                "movie_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": "9",
+                "duration": "20:00",
+                "release_date": "2026-05-20T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/daptar_2_69be7d12570dc.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=0b6c2a21dc3231680cf9133d07dc954e937bb72d32e8820d7c5df361e6971054",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/daptar_1_69be7d0cdc29a.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=93326e4c6ac8e9fd457010d66ce5087885b404ee5d5d8d1790a3d2cde58c114b",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/daptar_1_69be7d14c360f.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c222ee2653c7abc67e6045f3ef49d6cbe66541011f37c3fa122712e143bd25bc",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/daptar_logo_69bffc479d0a7.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=d643bcb8e81d33a024e672ad53d2892ef445d005903275671762d768e559f64a",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 732,
+                        "name": "Inspirational"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 15,
+                "discount": 0,
+                "available_for": 100,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.25",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 0,
+                "review_count": 0,
+                "reviews": [],
+                "casts": [
+                    {
+                        "id": 72,
+                        "name": "Sapna Vikram Salve",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    },
+                    {
+                        "id": 73,
+                        "name": "Sindhu Salve",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 74,
+                        "name": "Prashant Maharudra More",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 197,
+                "name": "Blind Bhet",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">blind भेट&hellip;.एका भेटीची अनोळखी गोष्ट. मराठी आणि हिंदी दोन्ही भाषांमधून&hellip; </span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/o-PtiICNEnk?si=NRuwJU2QbJpzTzi4",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Marathi",
+                "movie_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": "8",
+                "duration": "20:00",
+                "release_date": "2026-03-20T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/blind_2_69be82f6f06d7.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=896e2f567a800000b4b9afa4cdb354386ff34df8bbac9820b85fa651eaf5288e",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/blind_1_69be82f433c46.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=43661acae8190df1bede7ffa42ddceaeb967a450c4919582f6513e370ec6a101",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/blind_1_69be82fb20e3c.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=37f7aa5f8f438391e4cf34e25af98af4911ab63f3d34247a4529bf603269b389",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/blind_logo_1_69c7e8871f62c.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=9e6026f861f37a728e835e0f6c6b81b29c208ace8def3360e1cdcbff836da34c",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 751,
+                        "name": "Inspirational"
+                    },
+                    {
+                        "id": 752,
+                        "name": "Romantic"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 15,
+                "discount": 0,
+                "available_for": 15,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.25",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 4,
+                "review_count": 0,
+                "reviews": [],
+                "casts": [
+                    {
+                        "id": 82,
+                        "name": "Akshay Kelkar",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    },
+                    {
+                        "id": 79,
+                        "name": "Madhura Joshi",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    },
+                    {
+                        "id": 80,
+                        "name": "Pravin Prabhakar",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    },
+                    {
+                        "id": 81,
+                        "name": "Sanjivani",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 78,
+                        "name": "Abhay Balkawde",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 198,
+                "name": "Notebook",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">Director : Anmol Kumbhar &amp; Avinash Bharat Randive Writer : Sujal Narwade Present by : Mudra Films Producer : Sujit Pol &amp; Team</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/8p9ePrIa2XM?si=WQ3r_TGkPlkfJEbf",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Marathi",
+                "movie_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": "8",
+                "duration": "20:00",
+                "release_date": "2026-01-30T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/notbook_2_69be86dd6a6b6.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=04fe8660cf80e557388e7ae8d5d2e42874755ebeac9fda4c699750358abe1373",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/notebook_1_69be86dab4519.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c6ca96dc8f36921888afea5730bdc6845435fe4ff38c2c79dddc0f10d066796c",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/notebook_1_69be86df9c779.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=c6cd5eace0e4b8893ae2d236ad224c1e63863740a48146a59a3e80a1d23badd1",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/notbook_logo_69bffccc21728.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=aa09aeee4c35c52778e8b8335ba9f1a13da1ffc216abd090d87129e1bdea1c67",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 729,
+                        "name": "Inspirational"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 15,
+                "discount": 0,
+                "available_for": 15,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.25",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 4,
+                "review_count": 0,
+                "reviews": [],
+                "casts": [
+                    {
+                        "id": 85,
+                        "name": "Suraj Ingulkar",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    },
+                    {
+                        "id": 86,
+                        "name": "Yadnya Karande",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 83,
+                        "name": "Anmol Kumbhar",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    },
+                    {
+                        "id": 84,
+                        "name": "Avinash Bharat Randive",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 199,
+                "name": "PIDLEGAON",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">Nick plans to open a no-phone caf&eacute;&hellip; but the moment his network disappears, things take a crazy turn. On their way to Kolhapur for misal, Nick and his friend enter a mysterious village with no electricity, no TV, and no internet. Strange villagers, a &ldquo;dead&rdquo; tea seller, wrong directions, punctured tyres &mdash; is this a haunted village or something even more shocking?</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/qPROCEXScHY?si=jypcNzg0uYjWONsB",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Marathi",
+                "movie_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": "8",
+                "duration": "20:00",
+                "release_date": "2026-03-10T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": null,
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/pidlegaon_2_69be88f0ac190.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=20f45431fb10d89c9a7692a773785b363ead865b0edc0f4ef273903a00e41cef",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/pidlegaon_1_69be88ecb0cee.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=53c213f212b00bcb7a4b916482ecfa9ea9358580da1610496282a8f22671248a",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/pidlegaon_1_69be88f2cfe0b.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=10f4bcd8c0a357bed0d4100765a0d664b784231a87d19761ff88637e9615a37a",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/pidlegaon_logo_69bffcd854ea1.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=f027ba6217a61062bd317ac108d235914cb13e257848265bce34eee3f7064b79",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 737,
+                        "name": "Horror"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 20,
+                "discount": 0,
+                "available_for": 20,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.33",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 4,
+                "review_count": 0,
+                "reviews": [],
+                "casts": [
+                    {
+                        "id": 88,
+                        "name": "Nikunj Lotia",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 87,
+                        "name": "Nikunj Lotia",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 209,
+                "name": "बुलेट वाली",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">Nauvari नंतर नवीन काहीतरी करण्याचा प्रयत्न केलाय... अपेक्षा आहे की ह्या गाण्याला पण तसाच प्रेम करणार</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/NpVDVw-OlgY?si=T5w4_kZyt1mKmV57",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Marathi",
+                "movie_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": "8",
+                "duration": "20:00",
+                "release_date": "2023-08-22T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/booletwali_2_69be90fce9638.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=08c879ba882e8564bac15d243a7d778d3be20f2e667791f337cc8881f1817f4a",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/booletwali_1_69be90fa88111.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=941f7842c3930b953af347d4c4d9622239c130c808273f70dcfb6eb86c0120a7",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/booletwali_1_69be90ff09600.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=332de170c7386f6b0181e97ab652887bb0572c10011e1c5350806975be3a7a9b",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/booletwali_logo_69bffd6f691b7.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=e9d388de632df50e4bb4dfb26bcf13c37f916a5278f5e146f26b832aae0a6851",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 735,
+                        "name": "Romantic"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 20,
+                "discount": 0,
+                "available_for": 20,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.33",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 12,
+                "review_count": 1,
+                "reviews": [
+                    {
+                        "id": 182,
+                        "entertainment_id": 209,
+                        "rating": 5,
+                        "review": null,
+                        "user_id": 252,
+                        "username": "Tushar Gahiwal",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg",
+                        "created_at": "2026-03-28T14:14:26.000000Z",
+                        "updated_at": "2026-03-28T14:14:26.000000Z"
+                    }
+                ],
+                "casts": [
+                    {
+                        "id": 101,
+                        "name": "Darshan Rathod",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    },
+                    {
+                        "id": 102,
+                        "name": "Shraddha Takke",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 100,
+                        "name": "Sanju Rathod",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 210,
+                "name": "गुलाबी साडी",
+                "description": "<p>'गुलाबी साडी' (Gulabi Sadi) हे&nbsp;<span class=\"Yjhzub\" style=\"font-weight: bolder; color: #0a0a0a; font-family: 'Google Sans', Arial, sans-serif; font-size: 16px;\" data-sfc-root=\"c\" data-sfc-cb=\"\" data-processed=\"true\">२०२४ मधील सर्वात गाजलेले मराठी गाणे</span><span style=\"color: #0a0a0a; font-family: 'Google Sans', Arial, sans-serif; font-size: 16px;\">&nbsp;आहे</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/B_6d3RBiEN0?si=Q2U5JhjEuUDpHF0U",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Marathi",
+                "movie_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": "8",
+                "duration": "20:00",
+                "release_date": "2024-02-06T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/gulabi_2_69be92da570a2.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=577342bed92af30db06d7d855e4e4421a57153a7c9525f7b30a6b71e97dce2de",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/gulabi_1_69be92d8321df.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=596fe2c6d12d9a08c90a6c312e701e36539b66231adb5bea4124490e802062f1",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/gulabi_1_69be92dc88830.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=56b953aabbb0ac5a89ab5a68cd7bb188e1bedf5af3a9dc69f0a65e87c59a2e1b",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/gulabi_logo_69bffcebd7214.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=dbf9061fec24dd32e6a9b92fd96c821020674a0dc271b39fc387b0401345a453",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 741,
+                        "name": "Romantic"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 20,
+                "discount": 0,
+                "available_for": 20,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.33",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 9,
+                "review_count": 1,
+                "reviews": [
+                    {
+                        "id": 181,
+                        "entertainment_id": 210,
+                        "rating": 5,
+                        "review": null,
+                        "user_id": 45,
+                        "username": "Yash Gavali",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg",
+                        "created_at": "2026-03-28T07:11:03.000000Z",
+                        "updated_at": "2026-03-28T07:11:03.000000Z"
+                    }
+                ],
+                "casts": [
+                    {
+                        "id": 104,
+                        "name": "Prajakta Ghag",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 103,
+                        "name": "संजू राठौड़",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 212,
+                "name": "नऊवारी पाहिजे",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">आमच्या \"Jhumkaa\" या गाण्यांला जितकं भरभरून प्रेम दिलं तसच आमचं नवीन येणार गाणं \"Nauvari\" (नऊवारी) या गाण्याला पण भरभरून प्रेम द्याल हीच अपेक्षा आहे❤️🙏🏻</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/MnGAYS-v7lQ?list=RDMnGAYS-v7lQ",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Marathi",
+                "movie_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": null,
+                "duration": null,
+                "release_date": "2023-05-02T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/navvari_2_69be98c98da5b.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=14e1b9d5b51946a5d548f85c2dd3d189c8ef4fdbe91340aa0ff97943121e6cae",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/navvari_1_69be98c7305df.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=95829b62d2460e80c23d1d675fac4d4786e70de1ee2f5fd4e9d795db1ebf8cfe",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/navvari_1_69be98cb994f1.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=94b69a3d4103da74a0faded6f85ab53341fbe8e10414051d611bb0701b3d23b9",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/navvari_logo_69bffc9416724.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=aa57a817523d764d31b7df1c197f925ffff513f32e37d29fa81c12c776aeca50",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 745,
+                        "name": "Romantic"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 20,
+                "discount": 0,
+                "available_for": 20,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.33",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 8,
+                "review_count": 0,
+                "reviews": [],
+                "casts": [
+                    {
+                        "id": 104,
+                        "name": "Prajakta Ghag",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 107,
+                        "name": "Manish Mahajan",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 216,
+                "name": "Sundari1",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">Sanju Rathod presents the official music video of Sundari. This track is a beautiful mix of Marathi folk, commercial pop, and smooth R&amp;B vibes, bringing together the richness of tradition with a fresh modern sound. The video tells a magical love story, Sanju meets a girl in a small village, only to discover she&rsquo;s a mermaid</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/WpBn9w-Js_c?si=MfZithwJsyksWTWZ",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Marathi",
+                "movie_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 3,
+                        "name": "Marathi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": "8",
+                "duration": "01:00",
+                "release_date": "2026-03-25T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/sundari_2_69be97699e175_69c6285ea2234.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=1426ce12a901abfd77fb6e96366b04e64eff209462d6a7cf7bc2c39d27c0f238",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/sundari_1_69be976631ae5_69c6285c3b4f5.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=a549b0ede035ce8e7320b6f18a626f399879c8d3f5ef3eae394d563021186183",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/sundari_1_69be976631ae5_69c6286199181.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=83abad08198e749c1e9de8e0f898a60e45c815aa9cfe7d4f14b78607d7f4bc01",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/sundari_logo_69bffb642c49a_69c628638f561.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=9df7ccb9493535f67968b3e90d8926f37f65367f8ac4ebaf05fda9bc303379fc",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 753,
+                        "name": "Romantic"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 15,
+                "discount": 0,
+                "available_for": 100,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.25",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 22,
+                "review_count": 0,
+                "reviews": [],
+                "casts": [
+                    {
+                        "id": 106,
+                        "name": "Yashika Jatav",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 105,
+                        "name": "Himanshu Dhar",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 196,
+                "name": "Aparichit",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">On an evening when the rain is in a particularly relentless mood, a young woman working from home is interrupted by an elderly stranger at her door, seeking shelter.</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/sbMkZSHA5UY?si=5LoZB85_pKj0VQxV",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Hindi",
+                "movie_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": null,
+                "duration": null,
+                "release_date": "2026-06-10T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/aprichit_2_69be803420112.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=56f3a43796c9774149e56294abae04d9c032c516220d43ca5d31f7c46a76e75c",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/aprichit_1_69be803170f7d.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=1b412cf3a5e7918c9966254b7b5557d4c3c285ffac069713cf6122b71ff4c4a3",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/aprichit_1_69be803665486.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=df40ade836fc4586c4c7d5484b523f79bfb71d98da46e647068b2c3498bebd50",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/aprichit_69bffc3022b73.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=7c8b1bace5d1e5a6fa944b7b53a898be757c448bf37d2e575cfc083045ae9381",
+                "is_watch_list": false,
+                "genres": [],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 15,
+                "discount": 0,
+                "available_for": 15,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.25",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 0,
+                "review_count": 0,
+                "reviews": [],
+                "casts": [
+                    {
+                        "id": 77,
+                        "name": "Shishir Sharma",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    },
+                    {
+                        "id": 76,
+                        "name": "Suhani Gandhi",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 74,
+                        "name": "Prashant Maharudra More",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            },
+            {
+                "id": 213,
+                "name": "Pal Pal",
+                "description": "<p><span style=\"color: #131313; font-family: Roboto, Arial, sans-serif; white-space-collapse: preserve; background-color: rgba(0, 0, 0, 0.05);\">Pal Pal Lyrics - Afusic prod. by AliSoomroMusic</span></p>",
+                "trailer_url_type": "YouTube",
+                "type": "movie",
+                "trailer_url": "https://youtu.be/HdZK0uJyfqM?si=HhkR0W1ApRAr7dgE",
+                "movie_access": "pay-per-view",
+                "plan_id": 1,
+                "plan_level": null,
+                "language": "Hindi",
+                "movie_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "subtitle_languages": [
+                    {
+                        "id": 6,
+                        "name": "Hindi"
+                    }
+                ],
+                "imdb_rating": null,
+                "content_rating": "8",
+                "duration": "20:00",
+                "release_date": "2025-04-01T00:00:00.000000Z",
+                "is_restricted": 0,
+                "video_upload_type": "VdoCipher",
+                "video_url_input": "",
+                "video_id": "",
+                "download_status": 0,
+                "enable_quality": 0,
+                "download_url": null,
+                "poster_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/palpal_2_69be9a2823c7a.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=753df2483e468a50a126f8db8725ce7210e8b71b61aa0c98a1749655e91d5180",
+                "thumbnail_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/palpal_1_69ca5af571663.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=98f12141a1777d6c390294d397c731c42c56a4391224e9bc662b5032f6fcb705",
+                "poster_tv_image": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/palpal_1_69be9a29938ff.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=ed25902b9fc83458ce98c4e376652f6fb90d573aa544860f418b4304b7727fa2",
+                "logo": "https://kst-production.s3.ap-south-1.amazonaws.com/kst-production/palpal_logo_69bffc757aa4d.png?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEGQaCmFwLXNvdXRoLTEiRzBFAiBPrfvCf92YdbS1%2BAOCxtDTEnh%2BKcHMX6yF6FH9xJwGDAIhAPNd%2FbHSYzzTirG6SweR%2Fby32OeW1MqU8azb8AyC%2FZ8OKsAFCC0QABoMOTQ4Mjg1NTE3ODg2Igy%2Bpgn6Ai%2Feg%2FK5vpIqnQVXPxXNZbRE4rkbbYsIzqR4pt3FjYFp30PIXf5ntOrV4UGcuNRf%2BAXbI86M5mhmuej1q21hpIZH6M%2Fb4cd3X8zIO5aTI1juM4sVJQdc9xqLAZwt5YMwVVKOnNHIMiYGe%2FF7ZUpbXowvwWHHJQz3oQXAhByFYj5qJeA1EkhOABgnDvm53IMfU8a%2BM2C6t7nESmgtkhrSV1PJszBqc3FnrEEaPp36FuvUxCcv%2B%2Bt39z82NOnHaWFO7yDiW7eseC2KpgqELuK%2FBDJRAG3Kmr8Aoo6y3tWsBUhy%2BgrbTw8E7dkC3DdWePCVZOF%2B8zog49Oi%2Blm2B2%2BFur40TdCk31p84IU7tGHWn0A7IQZeIJHWfWw63GkbVZFsvbBYec9rLNfHZJuat0P4Wf%2BFzeMsrMFhpd8zA8cakRb2x3Zsq0JkJK0%2FZLmfRG48oi7YCexdF81otGDQquzt8xsBdHmefzdqTTXzcHyR6E88redjX%2FpVxIA%2B1xU%2B3AZGh2jXvoY70oslreK0YEO5CHfnc8ALa1kywn3iuDtWE2SRDjQqlEnPGwdaJFkmecMxGc6vMwGXdL7KTXacTwkdttULHIryhkT01pQLpVQK1T1AKZKA981Lc%2Bnju4kbTnC15joGigtdr9O4h2YrpOjBi%2B7gqpN14hkNPr7oY7ne9IlVICXokEWidvHJJPhDMu6TFJKwVLShfoA%2BAaDOjFjs%2FVoTPR%2F0Oc%2FkaOfYvyrDIp2BcEG9CfoWJU%2BlURpI8mhcZMuCmrMbOBqFZjCCIFgKNKAdZe44BbFPzbIQQgHfZC91KK9k2PEXphmKKBzsqi9kaVNytA4SUJ4fpJxZD0WLtDcfqkdKvF7UD%2F3o70IdtSaiNA%2BJIcN7zAJLy%2BRZJDKlleaab3a38pwwj6%2BrzgY6sQESUmE%2BUYnFvXx%2FuQ2AdSHRaU6QYkFukb5SXLQ8mRew%2BBAX9q%2BCqFFwgXAnmzG33YcmC3Ud5JtPUTSbCjAxjOvrf6MtbTWoE%2Ff0OJtD3a6aAveU7UTE8Ahj1Vml1A6y7TI7W61YZ6UJKwpl%2FlM%2BIwynK4kDy0rrUNRZwcGwPb5NhpAdOwJ4Laybb5AGGkjiP2ci9GFJ41Wdqzlc6ymfVhR3uf1KkwJtjqZJbOMkvyIT1Zg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7PNQMGITD%2F20260330%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260330T203016Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=735c8369f7b6021bed9b9a9caf63e185b1012b9d6aab13967b25fe204ba72177",
+                "is_watch_list": false,
+                "genres": [
+                    {
+                        "id": 756,
+                        "name": "Romantic"
+                    }
+                ],
+                "status": 1,
+                "price": 1,
+                "discounted_price": 1,
+                "purchase_type": "rental",
+                "access_duration": 20,
+                "discount": 0,
+                "available_for": 20,
+                "is_purchased": false,
+                "is_Movie_valid": false,
+                "expiry_duration_in_hrs": "0.33",
+                "payment_time": "",
+                "expiry_time": "",
+                "view_count": 5,
+                "review_count": 0,
+                "reviews": [],
+                "casts": [
+                    {
+                        "id": 110,
+                        "name": "Sania Iqbal",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Actor",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "directors": [
+                    {
+                        "id": 108,
+                        "name": "Affan Khan",
+                        "type": "castcrew",
+                        "bio": null,
+                        "place_of_birth": null,
+                        "dob": null,
+                        "designation": "Director",
+                        "profile_image": "https://console.kissashuru.com/default-image/Default-Image.jpg"
+                    }
+                ],
+                "is_likes": false,
+                "is_download": false,
+                "watched_time": 0,
+                "total_watched_time": 0
+            }
+        ],
+        "popular_movies": [],
+        "tranding_movies": [
+            209,
+            210
+        ],
+        "top_10": [],
+        "slider": [],
+        "upcoming_movies": [
+            195,
+            196
+        ],
+        "pay_per_view": [
+            210,
+            209,
+            199,
+            198,
+            197,
+            216,
+            212
+        ],
+        "continue_watching": [],
+        "viewed_movies": [],
+        "liked_movies": []
+    },
+    "message": "Data updated successfully"
+}
+
+
+
+CALL RECORDING 
+
+api/producer/video-call/user-recordings?user_id=45
+
+response :
+
+{
+    "status": true,
+    "data": [
+        {
+            "id": 2,
+            "call_id": 47,
+            "recording_url": "https://kst-production.s3.ap-south-1.amazonaws.com/staging/recordings/calls/47/47_1773753160.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDUaCmFwLXNvdXRoLTEiRzBFAiEAzHhU%2B78WeL%2FOEj2e8QcNy8k2j%2BCvb5S1VUpYsK49bAkCIH0MggN2STBq0iMley8zRwYEXb%2Bu%2BW%2Ff0Skz9OaVDbPmKskFCP7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMOTQ4Mjg1NTE3ODg2IgwA8u%2BR2PNNOJBjsbAqnQVZNtUvBbNW6vNwScM9f48f08JpHm9d6afLyb1Nur%2FSjstt8LUGRU1q3Hzvs72mOmpqPpOUOvQGYgHW4HtO9LAzZ2DzobxxzYFzfQYQBkk73p7DcsbGkzEsF6e%2FwDbssr%2F5UwAWB1nYH3KofShO9ViGXDnQCl8Us3TLN1mgFV0tg%2BteVfeoHQM7ze02ZyHfmLTvX167eIKzq9FB9TI%2BrZLn5SrYsUUMiBx6DIUEAMOfXDgfr1r1ZVpQd55QucZq4FHHivYGGrQjoydhWghLm42DL3yQO3cjn56eEgN5f%2FS2%2BmHXLPEMZXvQPyEHss9S0tqfT%2FAR%2BxJ29JYm9SQytIRRtgv1WUtaxNJnX8ESLmBdk8rhXVlm8tQt2j%2FocsR9Y5%2FTs6%2FcprZUZq%2Fqd3XHjTeYUc1CKSMcTxHwyPOn3S1MnCYB22wTYtLPxtOlCBhqMVZh8CI9HM68S35MOl1X7Yll%2BX6MRhafuWtqSSrRRCd8ViHYT%2F4u80wiFQ3fKrTUJBjs5euohiSIvrQSyN1dTwykrkMVrGkDKsGxuHAo5NYXoYVMc%2FxkaQcFt0QXE1wpe%2B07orVAg7akCA971z69LX90l3G69mIfX%2BCaM%2Bl%2FmHitCgTT1Gcse%2BtRmoJN2ilc16%2B%2F8w53869tzOj5eBAgOO78lEiccxVq2ep7FyKYEPmo7uGE8nn2sq8ti7AyOsasnbYzbVkUaOZCB9%2FAXOplnFEn4xh51AHHEowXfazPYwbEc%2BZ8%2F31nQRmpzfpu9QhAUwv3wnzBfd319AZjPJsT6FnmR4PjPRY3oO7MF2xCJFP%2FJXc1fVJRoL5lqY1ZRCiG%2Fja13Oey%2Ffp1xB%2B%2Fwrws%2BTNm%2B6ru9WugQzGCZsVFGoRCpEu%2BHyVbGZT7Bg4MA5IwqaPZzgY6sQGWnnd6ntvZJ5z0fOHjdhxRffFUhrV8PIYKqGSbe94E7UCFisjPxvzGfcFsIc2YKbaFYF44FSrrBsf%2FlMkUXR3kM3%2BZL6bDsyKg9bz2YptP7lOZ0vpc8Zp8LZ5ANpVP5xwZxpYLnJ4EkHcfFcDJoWDHgEYFAg2TRVkdBLDmS18UPeq8JI%2BTm2srfqxM6jkYulqKbqnEP%2FB971Cp1IX8cVq14O%2F7Ta07dEYwgAl%2BjjEnPgU%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7DCTW5V72%2F20260408%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260408T132359Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=99c02f678f4a62c43cf35fe4c591e06e94705340b8d30bc943164af27a8c2e4a",
+            "duration": 11,
+            "share_with_user": true,
+            "recorded_at": "2026-03-17T13:12:40.000000Z",
+            "producer_name": "Tushar Gahiwal"
+        },
+        {
+            "id": 1,
+            "call_id": 46,
+            "recording_url": "https://kst-production.s3.ap-south-1.amazonaws.com/staging/recordings/calls/46/46_1773746099.mp4?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDUaCmFwLXNvdXRoLTEiRzBFAiEAzHhU%2B78WeL%2FOEj2e8QcNy8k2j%2BCvb5S1VUpYsK49bAkCIH0MggN2STBq0iMley8zRwYEXb%2Bu%2BW%2Ff0Skz9OaVDbPmKskFCP7%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQABoMOTQ4Mjg1NTE3ODg2IgwA8u%2BR2PNNOJBjsbAqnQVZNtUvBbNW6vNwScM9f48f08JpHm9d6afLyb1Nur%2FSjstt8LUGRU1q3Hzvs72mOmpqPpOUOvQGYgHW4HtO9LAzZ2DzobxxzYFzfQYQBkk73p7DcsbGkzEsF6e%2FwDbssr%2F5UwAWB1nYH3KofShO9ViGXDnQCl8Us3TLN1mgFV0tg%2BteVfeoHQM7ze02ZyHfmLTvX167eIKzq9FB9TI%2BrZLn5SrYsUUMiBx6DIUEAMOfXDgfr1r1ZVpQd55QucZq4FHHivYGGrQjoydhWghLm42DL3yQO3cjn56eEgN5f%2FS2%2BmHXLPEMZXvQPyEHss9S0tqfT%2FAR%2BxJ29JYm9SQytIRRtgv1WUtaxNJnX8ESLmBdk8rhXVlm8tQt2j%2FocsR9Y5%2FTs6%2FcprZUZq%2Fqd3XHjTeYUc1CKSMcTxHwyPOn3S1MnCYB22wTYtLPxtOlCBhqMVZh8CI9HM68S35MOl1X7Yll%2BX6MRhafuWtqSSrRRCd8ViHYT%2F4u80wiFQ3fKrTUJBjs5euohiSIvrQSyN1dTwykrkMVrGkDKsGxuHAo5NYXoYVMc%2FxkaQcFt0QXE1wpe%2B07orVAg7akCA971z69LX90l3G69mIfX%2BCaM%2Bl%2FmHitCgTT1Gcse%2BtRmoJN2ilc16%2B%2F8w53869tzOj5eBAgOO78lEiccxVq2ep7FyKYEPmo7uGE8nn2sq8ti7AyOsasnbYzbVkUaOZCB9%2FAXOplnFEn4xh51AHHEowXfazPYwbEc%2BZ8%2F31nQRmpzfpu9QhAUwv3wnzBfd319AZjPJsT6FnmR4PjPRY3oO7MF2xCJFP%2FJXc1fVJRoL5lqY1ZRCiG%2Fja13Oey%2Ffp1xB%2B%2Fwrws%2BTNm%2B6ru9WugQzGCZsVFGoRCpEu%2BHyVbGZT7Bg4MA5IwqaPZzgY6sQGWnnd6ntvZJ5z0fOHjdhxRffFUhrV8PIYKqGSbe94E7UCFisjPxvzGfcFsIc2YKbaFYF44FSrrBsf%2FlMkUXR3kM3%2BZL6bDsyKg9bz2YptP7lOZ0vpc8Zp8LZ5ANpVP5xwZxpYLnJ4EkHcfFcDJoWDHgEYFAg2TRVkdBLDmS18UPeq8JI%2BTm2srfqxM6jkYulqKbqnEP%2FB971Cp1IX8cVq14O%2F7Ta07dEYwgAl%2BjjEnPgU%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA5ZSRYWA7DCTW5V72%2F20260408%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20260408T132359Z&X-Amz-SignedHeaders=host&X-Amz-Expires=86400&X-Amz-Signature=93b5df2258c87741fdd35d6d276508830b3b90982e04064526b94922882ad1d4",
+            "duration": 10,
+            "share_with_user": true,
+            "recorded_at": "2026-03-17T11:14:59.000000Z",
+            "producer_name": "Tushar Gahiwal"
+        }
+    ]
+}

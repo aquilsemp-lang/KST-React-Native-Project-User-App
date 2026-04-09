@@ -1,0 +1,62 @@
+{
+  "home": "হোম",
+  "remote": "রিমোট",
+  "upcoming": "আসছে",
+  "profile": "প্রোফাইল",
+
+  "welcome_back": "আবার স্বাগতম",
+  "signin_subtitle": "আপনার পছন্দের দেখার জন্য সাইন ইন করুন",
+  "phone_number": "ফোন নম্বর",
+  "enter_phone_number": "আপনার ফোন নম্বর লিখুন",
+  "continue": "চালিয়ে যান",
+  "dont_have_account": "আপনার কি অ্যাকাউন্ট নেই?",
+  "sign_up": "সাইন আপ",
+
+  "phone_required": "ফোন নম্বর প্রয়োজন",
+  "invalid_phone": "সঠিক ফোন নম্বর লিখুন",
+  "otp_sent_success": "OTP সফলভাবে পাঠানো হয়েছে!",
+
+  "verify_otp": "OTP যাচাই করুন",
+  "verification_code": "যাচাইকরণ কোড",
+  "verify_login": "যাচাই করুন ও লগইন করুন",
+
+  "create_account": "অ্যাকাউন্ট তৈরি করুন",
+  "join_app": "KissaShuru-এ যোগ দিন এবং দেখা শুরু করুন",
+  "first_name": "প্রথম নাম",
+  "last_name": "শেষ নাম",
+  "email": "ইমেইল",
+  "pin_code": "পিন কোড",
+  "state": "রাজ্য",
+  "city": "শহর",
+  "password": "পাসওয়ার্ড",
+  "confirm_password": "পাসওয়ার্ড নিশ্চিত করুন",
+  "already_have_account": "আপনার কি ইতিমধ্যে অ্যাকাউন্ট আছে?",
+  "sign_in": "সাইন ইন",
+  "user_registered_success": "ব্যবহারকারী সফলভাবে নিবন্ধিত হয়েছে",
+
+  "logout": "লগআউট",
+  "cancel": "বাতিল",
+
+  "no_upcoming_movies": "কোন আসন্ন সিনেমা নেই",
+  "watch_trailer": "ট্রেলার দেখুন",
+
+  "trending_movies": "ট্রেন্ডিং সিনেমা",
+  "pay_per_view": "পে পার ভিউ",
+  "viewed_movies": "দেখা সিনেমা",
+  "no_movies_available": "কোনো সিনেমা উপলব্ধ নেই",
+  "no_trending_movies": "কোনো ট্রেন্ডিং সিনেমা নেই",
+  "no_pay_per_view_movies": "পে-পর-ভিউ সিনেমা নেই",
+  "no_viewed_movies": "এখনও কোনো সিনেমা দেখা হয়নি",
+
+  "select_language": "ভাষা নির্বাচন করুন",
+  "language_description": "অ্যাপের ইন্টারফেসের জন্য আপনার পছন্দের ভাষা নির্বাচন করুন। এটি পুরো অ্যাপের ভাষা পরিবর্তন করবে।",
+
+  "movie_not_found": "ફિલ્મ મળી નથી",
+  "add_to_watchlist": "વૉચલિસ્ટમાં ઉમેરો",
+  "added_to_watchlist": "વૉચલિસ્ટમાં ઉમેરાઈ ગયું",
+  "about_movie": "આ ફિલ્મ વિશે",
+  "genre": "પ્રકાર",
+  "cast_crew": "કાસ્ટ અને ક્રૂ",
+  "reviews": "સમીક્ષાઓ",
+  "more_like_this": "આ જેવી વધુ"
+}

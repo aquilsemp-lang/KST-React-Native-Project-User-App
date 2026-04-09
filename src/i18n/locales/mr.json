@@ -1,0 +1,42 @@
+{
+  "home": "होम",
+  "remote": "रिमोट",
+  "upcoming": "लवकरच येणारे",
+  "profile": "प्रोफाइल",
+
+  "welcome_back": "पुन्हा स्वागत आहे",
+  "signin_subtitle": "तुमचे आवडते पाहण्यासाठी साइन इन करा",
+  "phone_number": "फोन नंबर",
+  "enter_phone_number": "तुमचा फोन नंबर टाका",
+  "continue": "पुढे जा",
+
+  "verify_otp": "OTP पडताळा",
+  "verification_code": "तपासणी कोड",
+  "verify_login": "तपासा आणि लॉगिन करा",
+
+  "recent_searches": "अलीकडील शोध",
+  "no_results": "कोणताही निकाल सापडला नाही",
+
+  "logout": "लॉगआउट",
+  "cancel": "रद्द करा",
+
+  "trending_movies": "ट्रेंडिंग चित्रपट",
+  "pay_per_view": "पे पर व्ह्यू",
+  "viewed_movies": "पाहिलेले चित्रपट",
+  "no_movies_available": "कोणतेही चित्रपट उपलब्ध नाहीत",
+  "no_trending_movies": "कोणतेही ट्रेंडिंग चित्रपट नाहीत",
+  "no_pay_per_view_movies": "पे-पर-व्ह्यू चित्रपट उपलब्ध नाहीत",
+  "no_viewed_movies": "अजून कोणतेही चित्रपट पाहिलेले नाहीत",
+
+  "select_language": "भाषा निवडा",
+  "language_description": "अॅप इंटरफेससाठी आपली पसंतीची भाषा निवडा. यामुळे संपूर्ण अॅपची भाषा बदलेल.",
+
+  "movie_not_found": "चित्रपट सापडला नाही",
+  "add_to_watchlist": "वॉचलिस्टमध्ये जोडा",
+  "added_to_watchlist": "वॉचलिस्टमध्ये जोडले",
+  "about_movie": "या चित्रपटाबद्दल",
+  "genre": "प्रकार",
+  "cast_crew": "कलाकार आणि टीम",
+  "reviews": "पुनरावलोकने",
+  "more_like_this": "यासारखे आणखी"
+}
