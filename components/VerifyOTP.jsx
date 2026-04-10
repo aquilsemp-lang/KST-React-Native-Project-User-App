@@ -5,10 +5,12 @@ import { useAuthStore } from '../store/authStore';
 import { useDashboardStore } from '../store/dashboardStore';
 import { useToastStore } from '../store/toastStore';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const VerifyOTP = ({ navigation, route }) => {
 
   const { t } = useTranslation();
+  const { colors } = useTheme();
   const { showToast } = useToastStore();
 
   const { phoneNumber } = route.params;
@@ -31,65 +33,47 @@ const VerifyOTP = ({ navigation, route }) => {
   }, []);
 
   const handleOTP = async () => {
-
     if (!otp) {
       setError(t('enter_otp'));
       return;
     }
-
     if (otp.length !== 4) {
       setError(t('valid_otp'));
       return;
     }
-
     try {
-
       const otp_data = await verifyOTP({ mobile: phoneNumber, otp: otp });
-
       if (!otp_data.ok) {
         showToast(t('otp_mismatch'), 'error');
         return;
       }
-
       const user_data = await userLogin({ mobile: phoneNumber });
-
       if (user_data.status) {
         setUser(user_data.data, user_data.data.api_token);
       } else {
         showToast(user_data.message, 'error');
       }
-
       const dashboard_data = await dashboardData(user_data.data.api_token);
-
       if (dashboard_data.status) {
         setDashboardData(dashboard_data.data);
       }
-
     } catch (error) {
       showToast(t('otp_mismatch'), 'error');
     }
   };
 
   const handleResendOTP = async () => {
-
     if (!canResend) return;
-
     setOtp('');
-
     try {
-
       await sendOTP(phoneNumber);
-
       setResendMessage(t('otp_sent'));
       showToast(t('otp_sent'), 'success');
-
       setCanResend(false);
-
       setTimeout(() => {
         setCanResend(true);
         setResendMessage('');
       }, 30000);
-
     } catch (error) {
       setResendMessage(error.message);
       showToast(error.message, 'error');
@@ -97,30 +81,30 @@ const VerifyOTP = ({ navigation, route }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
 
-      <View style={styles.header}>
+      <View style={[styles.header, { backgroundColor: colors.background }]}>
         <Image
           source={localImage}
           style={styles.logo}
         />
 
-        <Text style={styles.title}>{t('verify_otp')}</Text>
+        <Text style={[styles.title, { color: colors.text }]}>{t('verify_otp')}</Text>
 
-        <Text style={styles.subtitle}>
+        <Text style={[styles.subtitle, { color: colors.text }]}>
           {t('enter_code')} {phoneNumber}
         </Text>
       </View>
 
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-      <View style={styles.body}>
+      <View style={[styles.body, { backgroundColor: colors.background }]}>
 
-        <Text style={styles.label}>{t('verification_code')}</Text>
+        <Text style={[styles.label, { color: colors.text }]}>{t('verification_code')}</Text>
 
         <TextInput
           placeholder="0 0 0 0"
-          placeholderTextColor="#999"
+          placeholderTextColor={colors.subText}
           value={otp}
           keyboardType="phone-pad"
           maxLength={4}
@@ -129,7 +113,7 @@ const VerifyOTP = ({ navigation, route }) => {
             setOtp(text);
             setError('');
           }}
-          style={styles.input}
+          style={[styles.input, { backgroundColor: colors.card, borderColor: colors.border, color: colors.text }]}
         />
 
         <TouchableOpacity
@@ -144,7 +128,7 @@ const VerifyOTP = ({ navigation, route }) => {
         <View style={styles.changeNumberRow}>
 
           <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
-            <Text style={styles.changeNumberLink}>
+            <Text style={[styles.changeNumberLink, { color: colors.text }]}>
               {t('change_number')} |
             </Text>
           </TouchableOpacity>
@@ -167,7 +151,7 @@ const VerifyOTP = ({ navigation, route }) => {
 
         <View style={styles.signUpRow}>
 
-          <Text style={styles.signUpText}>
+          <Text style={[styles.signUpText, { color: colors.text }]}>
             {t('no_account')}
           </Text>
 
@@ -218,7 +202,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
     textAlign: 'center',
     paddingHorizontal: 20,
-    fontSize:18
+    fontSize: 18
   },
   body: {
     flex: 1,
@@ -306,5 +290,4 @@ const styles = StyleSheet.create({
   resendDisabled: {
     color: '#999',
   },
-
 });

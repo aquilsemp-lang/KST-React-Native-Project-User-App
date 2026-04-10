@@ -10,28 +10,26 @@ import ProfileScreen from '../screens/ProfileScreen';
 import { enableScreens } from 'react-native-screens';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 enableScreens();
 
 const Tab = createBottomTabNavigator();
 
-const getTabBarIcon = (routeName, focused, color, size )=>{
+const getTabBarIcon = (routeName, focused, color, size) => {
   let iconName;
 
-  if(routeName==='Home'){
-    iconName='home-outline';
-  }
-  else if(routeName==='Remote'){
-    iconName='tv-outline';
-  }
-  else if(routeName==='Upcoming'){
-    iconName='calendar-clear-outline';
-  }
-  else if(routeName==='Profile'){
-    iconName='person-outline';
+  if (routeName === 'Home') {
+    iconName = 'home-outline';
+  } else if (routeName === 'Remote') {
+    iconName = 'tv-outline';
+  } else if (routeName === 'Upcoming') {
+    iconName = 'calendar-clear-outline';
+  } else if (routeName === 'Profile') {
+    iconName = 'person-outline';
   }
 
-  return <Ionicons name={iconName} size={size} color={color}/>;
+  return <Ionicons name={iconName} size={size} color={color} />;
 };
 
 const hiddenTabScreens = [
@@ -51,70 +49,75 @@ const hiddenTabScreens = [
   'RecordingDetails',
 ];
 
-const getTabBarStyle = (route) => {
-  const routeName = getFocusedRouteNameFromRoute(route);
-
-  if (hiddenTabScreens.includes(routeName)) {
-    return { display: 'none' };
-  }
-
-  return { backgroundColor: '#1a1a1a', paddingBottom: 2, height: 60 };
-};
-
 const TabNavigator = () => {
 
   const { t } = useTranslation();
+  const { colors } = useTheme();
+
+  const getTabBarStyle = (route) => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+
+    if (hiddenTabScreens.includes(routeName)) {
+      return { display: 'none' };
+    }
+
+    return {
+      backgroundColor: colors.card,
+      paddingBottom: 2,
+      height: 60,
+      borderTopColor: colors.border,
+    };
+  };
 
   return (
-      <Tab.Navigator
-      screenOptions={({route})=>({
-        tabBarIcon:({focused, color, size}) =>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) =>
           getTabBarIcon(route.name, focused, color, size),
-
         tabBarActiveTintColor: '#E8751A',
-        tabBarInactiveTintColor: 'white',
-        tabBarStyle:getTabBarStyle(route),
-        tabBarLabelStyle :{ fontSize: 10},
+        tabBarInactiveTintColor: colors.icon,
+        tabBarStyle: getTabBarStyle(route),
+        tabBarLabelStyle: { fontSize: 10 },
       })}
->
+    >
 
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{
-            headerShown:false,
-            tabBarLabel: t('home')
-          }}
-        />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          headerShown: false,
+          tabBarLabel: t('home'),
+        }}
+      />
 
-        <Tab.Screen
-          name="Remote"
-          component={RemoteScreen}
-          options={{
-            headerShown:false,
-            tabBarLabel: t('remote')
-          }}
-        />
+      <Tab.Screen
+        name="Remote"
+        component={RemoteScreen}
+        options={{
+          headerShown: false,
+          tabBarLabel: t('remote'),
+        }}
+      />
 
-        <Tab.Screen
-          name="Upcoming"
-          component={UpcomingScreen}
-          options={{
-            headerShown:false,
-            tabBarLabel: t('upcoming')
-          }}
-        />
+      <Tab.Screen
+        name="Upcoming"
+        component={UpcomingScreen}
+        options={{
+          headerShown: false,
+          tabBarLabel: t('upcoming'),
+        }}
+      />
 
-        <Tab.Screen
-          name="Profile"
-          component={ProfileScreen}
-          options={{
-            headerShown:false,
-            tabBarLabel: t('profile')
-          }}
-        />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          headerShown: false,
+          tabBarLabel: t('profile'),
+        }}
+      />
 
-      </Tab.Navigator>
+    </Tab.Navigator>
   );
 };
 

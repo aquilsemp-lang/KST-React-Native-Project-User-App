@@ -8,12 +8,14 @@ import { addToWatchList } from '../services/auth';
 import { useWatchlistStore } from '../store/watchlistStore';
 import MovieThumbnail from '../globalComponents/MovieThumbnail';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const { width } = Dimensions.get('window');
 
 const MovieDetail = ({navigation, route }) => {
 
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   const { movieId } = route.params;
   const dashboardData = useDashboardStore((state) => state.dashboardData);
@@ -37,8 +39,8 @@ const MovieDetail = ({navigation, route }) => {
 
   if (!movie) {
     return (
-      <View style={styles.centered}>
-        <Text style={{ color: '#fff' }}>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
+        <Text style={{ color: colors.text }}>
           {t('movie_not_found')}
         </Text>
       </View>
@@ -52,7 +54,7 @@ const MovieDetail = ({navigation, route }) => {
 
   const renderMovie = ({item}) => (
 
-    <View style={styles.movieCard}>
+    <View style={[styles.movieCard, { backgroundColor: colors.background }]}>
       <View>
 
         <MovieThumbnail
@@ -65,18 +67,18 @@ const MovieDetail = ({navigation, route }) => {
 
         <View style={styles.movieInfo}>
 
-          <Text style={styles.movieTitle} numberOfLines={1}>
+          <Text style={[styles.movieTitle, { color: colors.text }]} numberOfLines={1}>
             {item.name}
           </Text>
 
           <View style={styles.metaRow}>
-            <IconClock name="clock" size={13} color="#999" style={{ marginRight: 4 , marginTop:2 }} />
-            <Text style={styles.metaText}>{item.duration}</Text>
+            <IconClock name="clock" size={13} color={colors.subText} style={{ marginRight: 4 , marginTop:2 }} />
+            <Text style={[styles.metaText, { color: colors.subText }]}>{item.duration}</Text>
 
-            <Text style={styles.metaDot}>•</Text>
+            <Text style={[styles.metaDot, { color: colors.subText }]}>•</Text>
 
-            <Icons name="star" size={13} color="#999" style={{ marginRight: 4 }} />
-            <Text style={styles.metaText}>{item.content_rating}+</Text>
+            <Icons name="star" size={13} color={colors.subText} style={{ marginRight: 4 }} />
+            <Text style={[styles.metaText, { color: colors.subText }]}>{item.content_rating}+</Text>
           </View>
 
           <View style={styles.addWatchlistButton}>
@@ -88,38 +90,38 @@ const MovieDetail = ({navigation, route }) => {
                   ✔ {t('added_to_watchlist')}
                 </Text>
               ) : (
-                <Text style={styles.addWatchlistText}>
+                <Text style={[styles.addWatchlistText, { color: colors.text }]}>
                   + {t('add_to_watchlist')}
                 </Text>
               )}
             </TouchableOpacity>
           </View>
 
-          <Text style={styles.descTitle}>
+          <Text style={[styles.descTitle, { color: colors.text }]}>
             {t('about_movie')}
           </Text>
 
           {item.description ? (
-            <Text style={styles.movieDesc}>
+            <Text style={[styles.movieDesc, { color: colors.text }]}>
               {stripHtml(item.description)}
             </Text>
           ) : null}
 
-          <Text style={styles.descTitle}>
+          <Text style={[styles.descTitle, { color: colors.text }]}>
             {t('genre')}
           </Text>
 
           <View style={styles.genreRow}>
             {item.genres?.map((g) => (
-              <View key={g.id} style={styles.genreTag}>
-                <Text style={styles.genreText}>
+              <View key={g.id} style={[styles.genreTag, { borderColor: colors.border }]}>
+                <Text style={[styles.genreText, { color: colors.text }]}>
                   {g.name}
                 </Text>
               </View>
             ))}
           </View>
 
-          <Text style={styles.castTitle}>
+          <Text style={[styles.castTitle, { color: colors.text }]}>
             {t('cast_crew')}
           </Text>
 
@@ -137,18 +139,18 @@ const MovieDetail = ({navigation, route }) => {
                   color="#E8751A"
                   style={{borderRadius:40, borderWidth:0.8, borderColor:'#E8751A', padding:6}}
                 />
-                <Text style={styles.castName}>
+                <Text style={[styles.castName, { color: colors.text }]}>
                   {c.name}
                 </Text>
               </View>
             )}
           />
 
-          <Text style={styles.descTitle}>
+          <Text style={[styles.descTitle, { color: colors.text }]}>
             {t('reviews')}
           </Text>
 
-          <Text style={styles.descTitle}>
+          <Text style={[styles.descTitle, { color: colors.text }]}>
             {t('more_like_this')}
           </Text>
 
@@ -171,7 +173,7 @@ const MovieDetail = ({navigation, route }) => {
                   </TouchableOpacity>
 
                   <Text
-                    style={{ color: '#fff', marginTop: 4, fontSize: 12, width: 120, textAlign: 'center'}}
+                    style={{ color: colors.text, marginTop: 4, fontSize: 12, width: 120, textAlign: 'center'}}
                     numberOfLines={1}
                   >
                     {m.name}
@@ -188,7 +190,7 @@ const MovieDetail = ({navigation, route }) => {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <FlatList
         data={[movie]}
         keyExtractor={(item) => item.id.toString()}
@@ -206,36 +208,9 @@ const MovieDetail = ({navigation, route }) => {
 export default MovieDetail;
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: '#000' 
-  },
-  centered: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    backgroundColor: '#000' 
-  },
-  thumbnail: { 
-    width: '100%', 
-    height: 250 
-  },
-  info: { 
-    padding: 16 
-  },
-  title: { 
-    fontSize: 24, 
-    fontWeight: 'bold', 
-    color: '#fff', 
-    marginBottom: 8 
-  },
-  meta: { 
-    fontSize: 14, 
-    color: '#999' 
-  },
-  container: { 
-    flex: 1, 
-    backgroundColor: '#000' 
+  container: {
+    flex: 1,
+    backgroundColor: '#000'
   },
   centered: {
     flex: 1,
@@ -250,11 +225,10 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: 13,
   },
-  emptyText: { 
-    color: '#999', 
-    fontSize: 16 
+  emptyText: {
+    color: '#999',
+    fontSize: 16
   },
-
   movieCard: {
     marginHorizontal: 8,
     marginBottom: 20,
@@ -262,16 +236,14 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     overflow: 'hidden',
   },
-
   thumbnail: {
     width: '100%',
     height: 250,
   },
   starsRow:{
-  flexDirection: 'row',
-  marginBottom: 8,
+    flexDirection: 'row',
+    marginBottom: 8,
   },
-
   movieInfo: {
     padding: 14,
   },
@@ -287,9 +259,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 8,
     marginTop: 14,
-
   },
-
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -304,85 +274,83 @@ const styles = StyleSheet.create({
     marginHorizontal: 6,
   },
   movieDesc: {
-  fontSize: 14,
-  color: '#fff',
-  lineHeight: 22,
-  marginBottom: 8,
-},
-addWatchlistButton: {
-  alignItems: 'center',
-  fontSize: 14,
-  borderRadius: 10,
-  borderWidth: 1,
-  borderColor: '#E8751A',
-  height: 50,
-  justifyContent: 'center',
-  marginBottom: 6,
-  
-},
-addWatchlistText: {
-  color: 'white',
-  fontSize: 20,
-},
-addedWatchlistText:{
-  color: '#E8751A',
-  fontSize: 20,
-  fontWeight: 'bold',
-},
-genreRow: {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  gap: 8,
-  marginTop: 4,
-},
-genreTag:{
-  borderWidth: 1,
-  borderColor: 'gray',
-  borderRadius: 20,
-  paddingHorizontal: 12,
-  paddingVertical: 4,
-},
-genreText: {
-  color: '#fff',
-  fontSize: 13,
-},
-castTitle:{
-  fontSize: 20,
-  fontWeight: 'bold',
-  color: '#fff',
-  marginBottom: 6,
-  marginTop: 14,
-},
-castItem: {
-  alignItems: 'center',
-  marginRight: 16,
-  width: 70,
-  marginBottom: 12,
-},
-castImage: {
-  width: 60,
-  height: 60,
-  borderRadius: 30,
-  marginBottom: 6,
-  backgroundColor: '#333',
-},
-castName: {
-  color: '#fff',
-  fontSize: 12,
-  textAlign: 'center',
-},
-reviewSection:{
-  flexDirection: 'row',
+    fontSize: 14,
+    color: '#fff',
+    lineHeight: 22,
+    marginBottom: 8,
+  },
+  addWatchlistButton: {
+    alignItems: 'center',
+    fontSize: 14,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#E8751A',
+    height: 50,
+    justifyContent: 'center',
+    marginBottom: 6,
+  },
+  addWatchlistText: {
+    color: 'white',
+    fontSize: 20,
+  },
+  addedWatchlistText:{
+    color: '#E8751A',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  genreRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 4,
+  },
+  genreTag:{
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+  },
+  genreText: {
+    color: '#fff',
+    fontSize: 13,
+  },
+  castTitle:{
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 6,
+    marginTop: 14,
+  },
+  castItem: {
+    alignItems: 'center',
+    marginRight: 16,
+    width: 70,
+    marginBottom: 12,
+  },
+  castImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginBottom: 6,
+    backgroundColor: '#333',
+  },
+  castName: {
+    color: '#fff',
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  reviewSection:{
+    flexDirection: 'row',
     marginTop: 12,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: 'gray',
     padding: 8,
     marginRight: 20,
-},
-reviewText:{
+  },
+  reviewText:{
     color: '#fff',
     fontSize: 14,
-
-},
+  },
 });

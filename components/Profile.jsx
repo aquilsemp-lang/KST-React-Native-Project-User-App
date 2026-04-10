@@ -1,14 +1,16 @@
 import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView , Image} from 'react-native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const Profile = ({navigation}) => {
 
   const { t } = useTranslation();
+  const { colors } = useTheme();
   const localImage = require('../images/app_logo.png');
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={[styles.safeArea, { backgroundColor: colors.background }]}>
       <View>
 
         <Image
@@ -16,11 +18,11 @@ const Profile = ({navigation}) => {
           style={{ width: 120, height: 120, resizeMode: 'contain', alignSelf: 'center', marginTop: 50 }}
         />
 
-        <Text style={styles.welcomeText}>
+        <Text style={[styles.welcomeText, { color: colors.text }]}>
           {t('welcome_to')} <Text style={styles.welcomeOrange}>KissaShuru</Text>
         </Text>
 
-        <Text style={styles.subText}>
+        <Text style={[styles.subText, { color: colors.subText }]}>
           {t('profile_description')}
         </Text>
 
@@ -35,11 +37,11 @@ const Profile = ({navigation}) => {
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.createButton}
+          style={[styles.createButton, { borderColor: colors.border }]}
           activeOpacity={0.85}
           onPress={()=>navigation.navigate('CreateAccount')}
         >
-          <Text style={styles.createText}>
+          <Text style={[styles.createText, { color: colors.text }]}>
             {t('create_account')}
           </Text>
         </TouchableOpacity>
@@ -50,7 +52,7 @@ const Profile = ({navigation}) => {
             <View style={styles.featureIconCircle}>
               <Text style={styles.featureIconText}>🔖</Text>
             </View>
-            <Text style={styles.featureText}>
+            <Text style={[styles.featureText, { color: colors.subText }]}>
               {t('save_watchlist')}
             </Text>
           </View>
@@ -59,7 +61,7 @@ const Profile = ({navigation}) => {
             <View style={styles.featureIconCircle}>
               <Text style={styles.featureIconText}>📱</Text>
             </View>
-            <Text style={styles.featureText}>
+            <Text style={[styles.featureText, { color: colors.subText }]}>
               {t('control_tv')}
             </Text>
           </View>
@@ -68,7 +70,7 @@ const Profile = ({navigation}) => {
             <View style={styles.featureIconCircle}>
               <Text style={styles.featureIconText}>🕐</Text>
             </View>
-            <Text style={styles.featureText}>
+            <Text style={[styles.featureText, { color: colors.subText }]}>
               {t('continue_watching')}
             </Text>
           </View>
@@ -100,7 +102,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 28,
     paddingVertical: 32,
   },
-
   logoContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -128,8 +129,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginTop: 2,
   },
-
-  // Welcome
   welcomeText: {
     color: WHITE,
     fontSize: 26,
@@ -147,8 +146,6 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     marginBottom: 36,
   },
-
-  // Buttons
   signInButton: {
     width: '100%',
     backgroundColor: ORANGE,
@@ -183,8 +180,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
   },
-
-  // Features
   featureList: {
     width: '100%',
     gap: 22,
@@ -192,7 +187,7 @@ const styles = StyleSheet.create({
   featureRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 16, 
+    gap: 16,
     marginLeft: 28,
     marginTop: 18
   },

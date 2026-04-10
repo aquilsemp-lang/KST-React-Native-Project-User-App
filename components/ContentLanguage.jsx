@@ -6,10 +6,12 @@ import { get_content_language, save_user_language } from '../services/auth';
 import { useAuthStore } from '../store/authStore';
 import { useToastStore } from '../store/toastStore';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const ContentLanguage = () => {
 
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   const { showToast } = useToastStore();
   const user = useAuthStore((state) => state.user);
@@ -53,13 +55,9 @@ const ContentLanguage = () => {
   const handleSaveLang = async () => {
     try {
       setSaving(true);
-
       const save_lang_data = await save_user_language(user.id, selected);
-
       setUserLanguages(selected);
-
       showToast(t('content_languages') + ' saved successfully!', 'success');
-
     } catch (error) {
       console.log('Save error', error.message);
       showToast(t('content_languages') + ' save failed', 'error');
@@ -70,20 +68,20 @@ const ContentLanguage = () => {
 
   if (loading) {
     return (
-      <View style={styles.centered}>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
         <ActivityIndicator size="large" color="#E8751A" />
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
 
-      <Text style={styles.Title}>
+      <Text style={[styles.Title, { color: colors.text }]}>
         {t('content_languages')}
       </Text>
 
-      <Text style={styles.subtitle}>{t('content_language_desc')}</Text>
+      <Text style={[styles.subtitle, { color: colors.subText }]}>{t('content_language_desc')}</Text>
 
       <FlatList
         data={languages}
@@ -94,14 +92,14 @@ const ContentLanguage = () => {
 
           return (
             <TouchableOpacity
-              style={[styles.langRow, isSelected && styles.langRowSelected]}
+              style={[styles.langRow, { backgroundColor: colors.card }, isSelected && styles.langRowSelected]}
               onPress={() => toggleLanguage(item.id)}
             >
-              <View style={styles.iconBox}>
-                <Icons name="globe" size={22} color="#fff" />
+              <View style={[styles.iconBox, { backgroundColor: colors.border }]}>
+                <Icons name="globe" size={22} color={colors.icon} />
               </View>
 
-              <Text style={styles.langName}>{item.name}</Text>
+              <Text style={[styles.langName, { color: colors.text }]}>{item.name}</Text>
 
               <View style={[styles.checkbox, isSelected && styles.checkboxSelected]}>
                 {isSelected && (
@@ -142,7 +140,6 @@ const styles = StyleSheet.create({
     textAlign:'left',
     fontWeight:'bold',
     marginBottom: 10,
-
   },
   subtitle: {
     color: '#999',
@@ -164,7 +161,6 @@ const styles = StyleSheet.create({
     borderColor: '#E8751A',
     backgroundColor: 'rgba(232, 117, 26, 0.1)',
   },
-
   iconBox: {
     width: 40,
     height: 40,
@@ -174,14 +170,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 14,
   },
-
   langName: {
     flex: 1,
     color: '#fff',
     fontSize: 16,
     fontWeight: '500',
   },
-
   checkbox: {
     width: 26,
     height: 26,
@@ -195,7 +189,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#E8751A',
     borderColor: '#E8751A',
   },
-
   saveButton: {
     position: 'absolute',
     bottom: 16,

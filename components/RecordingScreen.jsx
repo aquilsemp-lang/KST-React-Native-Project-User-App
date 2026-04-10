@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, StyleSheet, Alert} from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, ActivityIndicator, StyleSheet} from  'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { getUserRecordings } from '../services/auth'; 
-import { useAuthStore } from '../store/authStore'; 
+import { getUserRecordings } from '../services/auth';
+import { useAuthStore } from '../store/authStore';
+import { useTranslation } from 'react-i18next';
+import Icons from 'react-native-vector-icons/Ionicons';
+import Share from 'react-native-share';
+import { useTheme } from '../store/themeContext';
+import RNFS from 'react-native-fs';
 
 const formatDuration = (seconds) => {
     if (!seconds) return '0s';
@@ -32,43 +37,82 @@ const getInitials = (name) => {
         .slice(0, 2);
 };
 
+const RecordingCard = ({ item, onPlay, t }) => {
+    const { colors } = useTheme();
 
-const RecordingCard = ({ item, onPlay }) => (
-    <View style={styles.card}>
-        <View style={styles.cardTop}>
-            <View style={styles.avatar}>
-                <Text style={styles.avatarText}>{getInitials(item.producer_name)}</Text>
+//     const handleShare = async () => {
+//     try {
+//         await Share.open({
+//             url: item.recording_url,
+//             type: 'video/mp4',
+//         });
+//     } catch (error) {
+//         console.log('Share error:', error.message);
+//     }
+// };
+
+const handleShare = async () => {
+    try {
+        const localPath = `${RNFS.CachesDirectoryPath}/recording_${item.call_id}.mp4`;
+        await RNFS.downloadFile({
+            fromUrl: item.recording_url,
+            toFile: localPath,
+        }).promise;
+
+        await Share.open({
+            url: `file://${localPath}`,
+            type: 'video/mp4',
+        });
+    } catch (error) {
+        console.log('Share error:', error.message);
+    }
+};
+
+    return(
+        <View style={[styles.card, { backgroundColor: colors.card }]}>
+            <View style={styles.cardTop}>
+                <View style={styles.avatar}>
+                    <Text style={styles.avatarText}>{getInitials(item.producer_name)}</Text>
+                </View>
+                <View style={styles.cardInfo}>
+                    <Text style={[styles.producerName, { color: colors.text }]}>{item.producer_name}</Text>
+                    <Text style={[styles.recordedAt, { color: colors.subText }]}>{formatDate(item.recorded_at)}</Text>
+                </View>
+                <TouchableOpacity style={styles.shareIcon} onPress={handleShare}>
+                    <Icons name="share-social-outline" size={30} color='#E8751A' style={{padding:6}}/>
+                </TouchableOpacity>
             </View>
-            <View style={styles.cardInfo}>
-                <Text style={styles.producerName}>{item.producer_name}</Text>
-                <Text style={styles.recordedAt}>{formatDate(item.recorded_at)}</Text>
+
+            <View style={styles.divider} />
+
+            <View style={styles.cardBottom}>
+                <View style={styles.metaRow}>
+                    <Text style={[styles.metaLabel, { color: colors.subText }]}>{t('duration')}</Text>
+                    <Text style={[styles.metaValue, { color: colors.text }]}>{formatDuration(item.duration)}</Text>
+                </View>
+                <View style={styles.metaRow}>
+                    <Text style={[styles.metaLabel, { color: colors.subText }]}>{t('call_id')}</Text>
+                    <Text style={[styles.metaValue, { color: colors.text }]}>{item.call_id}</Text>
+                </View>
             </View>
+
+            <TouchableOpacity style={styles.playButton} onPress={() => onPlay(item)}>
+                <Text style={styles.playButtonText}>
+                    ▶ {t('play')} {t('call_recording')}
+                </Text>
+            </TouchableOpacity>
         </View>
+    );
+};
 
-        <View style={styles.divider} />
-
-        <View style={styles.cardBottom}>
-            <View style={styles.metaRow}>
-                <Text style={styles.metaLabel}>Duration</Text>
-                <Text style={styles.metaValue}>{formatDuration(item.duration)}</Text>
-            </View>
-            <View style={styles.metaRow}>
-                <Text style={styles.metaLabel}>Call ID</Text>
-                <Text style={styles.metaValue}>{item.call_id}</Text>
-            </View>
-        </View>
-
-        <TouchableOpacity style={styles.playButton} onPress={() => onPlay(item)}>
-            <Text style={styles.playButtonText}>▶  Play Call Recording</Text>
-        </TouchableOpacity>
-    </View>
-);
-
-export default function RecordingScreen( {navigation}) {
+export default function RecordingScreen({ navigation }) {
     const { user, token } = useAuthStore();
+    const { colors } = useTheme();
     const [recordings, setRecordings] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         fetchRecordings();
@@ -81,60 +125,70 @@ export default function RecordingScreen( {navigation}) {
             const data = await getUserRecordings(token, user.id);
             setRecordings(data);
         } catch (err) {
-            setError(err.message || 'Failed to load recordings');
+            setError(err.message || t('error_loading_recordings'));
         } finally {
             setIsLoading(false);
         }
     };
 
     const handlePlay = (item) => {
-      navigation.navigate('RecordingDetails', {recording:item})
+        navigation.navigate('RecordingDetails', { recording: item });
     };
 
     if (isLoading) {
         return (
-            <View style={styles.centered}>
+            <View style={[styles.centered, { backgroundColor: colors.background }]}>
                 <ActivityIndicator size="large" color="#E8751A" />
-                <Text style={styles.loadingText}>Loading recordings...</Text>
+                <Text style={[styles.loadingText, { color: colors.text }]}>
+                    {t('loading_recordings')}
+                </Text>
             </View>
         );
     }
 
     if (error) {
         return (
-            <View style={styles.centered}>
+            <View style={[styles.centered, { backgroundColor: colors.background }]}>
                 <Text style={styles.errorText}>{error}</Text>
                 <TouchableOpacity style={styles.retryButton} onPress={fetchRecordings}>
-                    <Text style={styles.retryButtonText}>Retry</Text>
+                    <Text style={styles.retryButtonText}>
+                        {t('retry')}
+                    </Text>
                 </TouchableOpacity>
             </View>
         );
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.headerTitle}>My Recordings</Text>
-                <Text style={styles.headerSubtitle}>{recordings.length} recording{recordings.length !== 1 ? 's' : ''}</Text>
+        <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+            <View style={[styles.header, { backgroundColor: colors.background }]}>
+                <Text style={[styles.headerTitle, { color: colors.text }]}>
+                    {t('my_recordings')}
+                </Text>
+                <Text style={[styles.headerSubtitle, { color: colors.subText }]}>
+                    {recordings.length} {t('recording')}
+                    {recordings.length !== 1 ? 's' : ''}
+                </Text>
             </View>
 
             <FlatList
                 data={recordings}
                 keyExtractor={(item) => String(item.id)}
                 renderItem={({ item }) => (
-                    <RecordingCard item={item} onPlay={handlePlay} />
+                    <RecordingCard item={item} onPlay={handlePlay} t={t} />
                 )}
                 contentContainerStyle={styles.list}
                 ListEmptyComponent={
                     <View style={styles.centered}>
-                        <Text style={styles.emptyText}>No recordings found</Text>
+                        <Text style={[styles.emptyText, { color: colors.subText }]}>
+                            {t('no_recordings_found')}
+                        </Text>
                     </View>
                 }
             />
         </SafeAreaView>
     );
-}
-
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -163,7 +217,7 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor: '#1a1a1a',
         borderRadius: 14,
-        borderWidth: 2,
+        borderWidth: 4,
         borderColor: '#E8751A',
         padding: 16,
         marginBottom: 12,
@@ -201,7 +255,7 @@ const styles = StyleSheet.create({
         fontWeight: '800'
     },
     divider: {
-        height: 0.5,
+        height: 0.8,
         backgroundColor: '#E0E0E0',
         marginVertical: 12,
     },
@@ -235,6 +289,12 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 14,
         fontWeight: 'bold',
+    },
+    shareIcon:{
+        alignItems:'flex-end',
+        position:'relative',
+        backgroundColor:'rgba(232, 117, 26, 0.1)',
+        borderRadius:20
     },
     centered: {
         flex: 1,

@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import {sendOTP} from '../services/auth';
 import { useToastStore } from '../store/toastStore';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const SignIn = ({ navigation }) => {
   const { t } = useTranslation();
+  const { colors } = useTheme();
   const {showToast} = useToastStore();
   const localImage = require('../images/app_logo.png');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -25,7 +27,7 @@ const SignIn = ({ navigation }) => {
       const otpData= await sendOTP(phoneNumber);
       console.log('Success', otpData);
       showToast(t('otp_sent_success'), 'success');
-      navigation.navigate('VerifyOTP', {phoneNumber: phoneNumber});      
+      navigation.navigate('VerifyOTP', {phoneNumber: phoneNumber});
     }
     catch(error){
       console.log('Error',error.message);
@@ -34,20 +36,20 @@ const SignIn = ({ navigation }) => {
   };
 
   return (
-      <View style={styles.container}>
+      <View style={[styles.container, { backgroundColor: colors.background }]}>
 
-        <View style={styles.header}>
+        <View style={[styles.header, { backgroundColor: colors.background }]}>
 
           <Image
             source={localImage}
             style={styles.logo}
           />
 
-          <Text style={styles.title}>
+          <Text style={[styles.title, { color: colors.text }]}>
             {t('welcome_back')}
           </Text>
 
-          <Text style={styles.subtitle}>
+          <Text style={[styles.subtitle, { color: colors.text }]}>
             {t('signin_subtitle')}
           </Text>
 
@@ -55,23 +57,23 @@ const SignIn = ({ navigation }) => {
 
       {errors ? <Text style={styles.errorText}>{errors}</Text> : null}
 
-        <View style={styles.body}>
+        <View style={[styles.body, { backgroundColor: colors.background }]}>
 
-          <Text style={styles.label}>
+          <Text style={[styles.label, { color: colors.text }]}>
             {t('phone_number')}
           </Text>
 
           <TextInput
             placeholder={t('enter_phone_number')}
-            placeholderTextColor="#999"
+            placeholderTextColor={colors.subText}
             value={phoneNumber}
             keyboardType="phone-pad"
             maxLength={10}
             onChangeText={(text) => {
-                    setPhoneNumber(text);
-                    setErrors('');
-          }}
-            style={styles.input}
+              setPhoneNumber(text);
+              setErrors('');
+            }}
+            style={[styles.input, { backgroundColor: colors.card, borderColor: colors.border, color: colors.text }]}
           />
 
           <TouchableOpacity
@@ -85,7 +87,7 @@ const SignIn = ({ navigation }) => {
 
           <View style={styles.signUpRow}>
 
-            <Text style={styles.signUpText}>
+            <Text style={[styles.signUpText, { color: colors.text }]}>
               {t('dont_have_account')}
             </Text>
 

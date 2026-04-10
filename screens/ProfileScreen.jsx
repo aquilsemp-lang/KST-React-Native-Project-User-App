@@ -12,48 +12,58 @@ import AppLanguage from '../components/AppLanguage';
 import HomeScreen from '../screens/HomeScreen';
 import RecordingDetails from '../components/RecordingDetails';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useTheme } from '../store/themeContext';
 
+const Stack = createStackNavigator();
 
-const Stack=createStackNavigator();
 const ProfileScreen = () => {
+
+  const { colors } = useTheme();
+
   return (
-        <Stack.Navigator
-        screenOptions={({ navigation }) => ({
-        headerTitle:'',
-        headerStyle:{backgroundColor:'black'},
-        headerTintColor: '#E8751A', 
-        headerLeftContainerStyle: { paddingLeft: 0, marginLeft: 0 },   
+    <Stack.Navigator
+      screenOptions={({ navigation }) => ({
+        headerTitle: '',
+        headerStyle: { backgroundColor: colors.background },
+        headerTintColor: '#E8751A',
+        headerLeftContainerStyle: { paddingLeft: 0, marginLeft: 0 },
         headerLeft: () => (
-        <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 8, padding:0,
-         }}>
-          <Ionicons name="chevron-back-outline" size={35} color="white" />
-        </TouchableOpacity>
-      ),
-    })}>
-        <Stack.Screen name="UserLoginScreen" component={UserLoginScreen} options={{headerShown: false}}/>
-        <Stack.Screen name="WatchlistScreen" component={WatchlistScreen}/>
-        <Stack.Screen name="RecordingScreen" component={RecordingScreen}/>
-        <Stack.Screen name="MovieDetail" component={MovieDetail}/>
-        <Stack.Screen name="RentHistory" component={RentHistory} />
-        <Stack.Screen name="RentDetails" component={RentDetails} 
+          <TouchableOpacity onPress={() => navigation.goBack()} style={{ marginLeft: 8, padding: 0 }}>
+            <Ionicons name="chevron-back-outline" size={35} color={colors.icon} />
+          </TouchableOpacity>
+        ),
+      })}
+    >
+      <Stack.Screen name="UserLoginScreen" component={UserLoginScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="WatchlistScreen" component={WatchlistScreen} />
+      <Stack.Screen name="RecordingScreen" component={RecordingScreen} />
+      <Stack.Screen name="MovieDetail" component={MovieDetail} />
+      <Stack.Screen name="RentHistory" component={RentHistory} />
+      <Stack.Screen
+        name="RentDetails"
+        component={RentDetails}
         options={{
-          presentation:"modal",
-          animation: "slide_from_bottom",
+          presentation: 'modal',
+          animation: 'slide_from_bottom',
           headerShown: false,
           gestureEnabled: true,
-          contentStyle:{
-            backgroundColor: "black"
+          contentStyle: {
+            backgroundColor: colors.background,
           },
         }}
-        />
-        <Stack.Screen name="RecordingDetails" component={RecordingDetails} options={{
-          presentation:"transparentModal",
+      />
+      <Stack.Screen
+        name="RecordingDetails"
+        component={RecordingDetails}
+        options={{
+          presentation: 'transparentModal',
           headerShown: false,
-        }}/>
-        <Stack.Screen name="ContentLanguage" component={ContentLanguage}/>
-        <Stack.Screen name="AppLanguage" component={AppLanguage}/>
-        <Stack.Screen name= "HomeScreen" component= {HomeScreen} options={{headerShown: false}}/>
-        </Stack.Navigator>
+        }}
+      />
+      <Stack.Screen name="ContentLanguage" component={ContentLanguage} />
+      <Stack.Screen name="AppLanguage" component={AppLanguage} />
+      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+    </Stack.Navigator>
   );
 };
 

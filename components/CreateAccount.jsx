@@ -5,9 +5,11 @@ import {registerUser, stateNames} from '../services/auth';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useToastStore } from '../store/toastStore';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const CreateAccount = ({ navigation }) => {
   const { t } = useTranslation();
+  const { colors } = useTheme();
   const {showToast} = useToastStore();
   const localImage = require('../images/app_logo.png');
   const [firstName, setFirstName] = useState('');
@@ -20,7 +22,7 @@ const CreateAccount = ({ navigation }) => {
   const [city, setCity] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
+
   const [open, setOpen] = useState(false);
   const [selectedState, setSelectedState] = useState(null);
   const [stateItems, setStateItems] = useState([]);
@@ -56,58 +58,19 @@ const CreateAccount = ({ navigation }) => {
   const handleCreateAccount = async () => {
     let hasError = false;
 
-    if (!firstName) {
-      setErrorFirstName(t('first_name_required'));
-      hasError = true;
-    }
-    if (!lastName) {
-      setErrorLastName(t('last_name_required'));
-      hasError = true;
-    }
-    if (!email) {
-      setErrorEmail(t('email_required'));
-      hasError = true;
-    }
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      setErrorEmail(t('invalid_email'));
-      hasError = true;
-    }
-    if (!phoneNumber) {
-      setErrorPhoneNumber(t('phone_required'));
-      hasError = true;
-    }
-    if (phoneNumber.length !== 10) {
-      setErrorPhoneNumber(t('invalid_phone_10'));
-      hasError = true;
-    }
-    if (!pinCode) {
-      setErrorPinCode(t('pin_code_required'));
-      hasError = true;
-    }
-    if (!selectedState) {
-      setErrorSelectedState(t('state_required'));
-      hasError = true;
-    }
-    if (!city) {
-      setErrorCity(t('city_required'));
-      hasError = true;
-    }
-    if (!password) {
-      setErrorPassword(t('password_required'));
-      hasError = true;
-    }
-    if (password.length < 6) {
-      setErrorPassword(t('password_min_length'));
-      hasError = true;
-    }
-    if (!confirmPassword) {
-      setErrorConfirmPassword(t('confirm_password_required'));
-      hasError = true;
-    }
-    if (password !== confirmPassword) {
-      setErrorConfirmPassword(t('password_mismatch'));
-      hasError = true;
-    }
+    if (!firstName) { setErrorFirstName(t('first_name_required')); hasError = true; }
+    if (!lastName) { setErrorLastName(t('last_name_required')); hasError = true; }
+    if (!email) { setErrorEmail(t('email_required')); hasError = true; }
+    if (!/\S+@\S+\.\S+/.test(email)) { setErrorEmail(t('invalid_email')); hasError = true; }
+    if (!phoneNumber) { setErrorPhoneNumber(t('phone_required')); hasError = true; }
+    if (phoneNumber.length !== 10) { setErrorPhoneNumber(t('invalid_phone_10')); hasError = true; }
+    if (!pinCode) { setErrorPinCode(t('pin_code_required')); hasError = true; }
+    if (!selectedState) { setErrorSelectedState(t('state_required')); hasError = true; }
+    if (!city) { setErrorCity(t('city_required')); hasError = true; }
+    if (!password) { setErrorPassword(t('password_required')); hasError = true; }
+    if (password.length < 6) { setErrorPassword(t('password_min_length')); hasError = true; }
+    if (!confirmPassword) { setErrorConfirmPassword(t('confirm_password_required')); hasError = true; }
+    if (password !== confirmPassword) { setErrorConfirmPassword(t('password_mismatch')); hasError = true; }
 
     if (hasError) return;
 
@@ -132,13 +95,13 @@ const CreateAccount = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+      <ScrollView contentContainerStyle={[styles.scrollContent, { backgroundColor: colors.background }]}>
 
         <View style={styles.header}>
           <Image source={localImage} style={styles.logo} />
-          <Text style={styles.title}>{t('create_account')}</Text>
-          <Text style={styles.subtitle}>{t('join_app')}</Text>
+          <Text style={[styles.title, { color: colors.text }]}>{t('create_account')}</Text>
+          <Text style={[styles.subtitle, { color: colors.text }]}>{t('join_app')}</Text>
         </View>
 
         <View style={styles.body}>
@@ -146,35 +109,29 @@ const CreateAccount = ({ navigation }) => {
           <View style={styles.nameRow}>
 
             <View style={styles.nameField}>
-              <Text style={styles.label}>{t('first_name')}</Text>
-              <View style={styles.inputWrapper}>
-                <Icons name="person-outline" size={20} color="#999" style={styles.icon} />
+              <Text style={[styles.label, { color: colors.text }]}>{t('first_name')}</Text>
+              <View style={[styles.inputWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
+                <Icons name="person-outline" size={20} color={colors.subText} style={styles.icon} />
                 <TextInput
                   placeholder={t('first')}
-                  placeholderTextColor="#999"
+                  placeholderTextColor={colors.subText}
                   value={firstName}
-                  onChangeText={(text) => {
-                    setFirstName(text);
-                    setErrorFirstName('');
-                  }}
-                  style={styles.inputWithIcon}
+                  onChangeText={(text) => { setFirstName(text); setErrorFirstName(''); }}
+                  style={[styles.inputWithIcon, { color: colors.text }]}
                 />
               </View>
               {errorFirstName ? <Text style={styles.errorText}>{errorFirstName}</Text> : null}
             </View>
 
             <View style={styles.nameField}>
-              <Text style={styles.label}>{t('last_name')}</Text>
-              <View style={styles.inputWrapper}>
+              <Text style={[styles.label, { color: colors.text }]}>{t('last_name')}</Text>
+              <View style={[styles.inputWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
                 <TextInput
                   placeholder={t('last')}
-                  placeholderTextColor="#999"
+                  placeholderTextColor={colors.subText}
                   value={lastName}
-                  onChangeText={(text) => {
-                    setLastName(text);
-                    setErrorLastName('');
-                  }}
-                  style={styles.inputWithIcon}
+                  onChangeText={(text) => { setLastName(text); setErrorLastName(''); }}
+                  style={[styles.inputWithIcon, { color: colors.text }]}
                 />
               </View>
               {errorLastName ? <Text style={styles.errorText}>{errorLastName}</Text> : null}
@@ -182,139 +139,115 @@ const CreateAccount = ({ navigation }) => {
 
           </View>
 
-          <Text style={styles.label}>{t('email')}</Text>
-          <View style={styles.inputWrapper}>
-            <Icons name="mail-outline" size={20} color="#999" style={styles.icon} />
+          <Text style={[styles.label, { color: colors.text }]}>{t('email')}</Text>
+          <View style={[styles.inputWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            <Icons name="mail-outline" size={20} color={colors.subText} style={styles.icon} />
             <TextInput
               placeholder={t('email_placeholder')}
-              placeholderTextColor="#999"
+              placeholderTextColor={colors.subText}
               value={email}
               keyboardType="email-address"
-              onChangeText={(text) => {
-                setEmail(text);
-                setErrorEmail('');
-              }}
-              style={styles.inputWithIcon}
+              onChangeText={(text) => { setEmail(text); setErrorEmail(''); }}
+              style={[styles.inputWithIcon, { color: colors.text }]}
             />
           </View>
           {errorEmail ? <Text style={styles.errorText}>{errorEmail}</Text> : null}
 
-          <Text style={styles.label}>{t('phone_number')}</Text>
-          <View style={styles.inputWrapper}>
-            <Icons name="call-outline" size={20} color="#999" style={styles.icon} />
+          <Text style={[styles.label, { color: colors.text }]}>{t('phone_number')}</Text>
+          <View style={[styles.inputWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            <Icons name="call-outline" size={20} color={colors.subText} style={styles.icon} />
             <TextInput
               placeholder={t('enter_phone_number')}
-              placeholderTextColor="#999"
+              placeholderTextColor={colors.subText}
               value={phoneNumber}
               keyboardType="phone-pad"
               maxLength={10}
-              onChangeText={(text) => {
-                setPhoneNumber(text);
-                setErrorPhoneNumber('');
-              }}
-              style={styles.inputWithIcon}
+              onChangeText={(text) => { setPhoneNumber(text); setErrorPhoneNumber(''); }}
+              style={[styles.inputWithIcon, { color: colors.text }]}
             />
           </View>
           {errorPhoneNumber ? <Text style={styles.errorText}>{errorPhoneNumber}</Text> : null}
 
-          <Text style={styles.label}>{t('pin_code')}</Text>
-          <View style={styles.inputWrapper}>
-            <Icons name="pin" size={20} color="#999" style={styles.icon} />
+          <Text style={[styles.label, { color: colors.text }]}>{t('pin_code')}</Text>
+          <View style={[styles.inputWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            <Icons name="pin" size={20} color={colors.subText} style={styles.icon} />
             <TextInput
               placeholder={t('pin_code_placeholder')}
-              placeholderTextColor="#999"
+              placeholderTextColor={colors.subText}
               value={pinCode}
               keyboardType="number-pad"
-              onChangeText={(text) => {
-                setPinCode(text);
-                setErrorPinCode('');
-              }}
-              style={styles.inputWithIcon}
+              onChangeText={(text) => { setPinCode(text); setErrorPinCode(''); }}
+              style={[styles.inputWithIcon, { color: colors.text }]}
             />
           </View>
           {errorPinCode ? <Text style={styles.errorText}>{errorPinCode}</Text> : null}
 
-          <Text style={styles.label}>{t('state')}</Text>
+          <Text style={[styles.label, { color: colors.text }]}>{t('state')}</Text>
           <DropDownPicker
             open={open}
             value={selectedState}
             items={stateItems}
-            setOpen={(val) => {
-              setOpen(val);
-              if (val) handleStates();
-            }}
-            setValue={(val) => {
-              setSelectedState(val);
-              setErrorSelectedState('');
-            }}
+            setOpen={(val) => { setOpen(val); if (val) handleStates(); }}
+            setValue={(val) => { setSelectedState(val); setErrorSelectedState(''); }}
             setItems={setStateItems}
             placeholder={t('select_state')}
             loading={loadingStates}
             activityIndicatorColor="#E8751A"
             searchable={true}
             searchPlaceholder={t('search_state')}
-            searchTextInputStyle={{ color: '#fff', borderColor: 'gray', borderRadius: 8, fontSize: 16 }}
-            style={styles.dropdown}
-            dropDownContainerStyle={styles.dropdownContainer}
-            textStyle={styles.dropdownText}
-            placeholderStyle={styles.dropdownPlaceholder}
+            searchTextInputStyle={{ color: colors.text, borderColor: colors.border, borderRadius: 8, fontSize: 16 }}
+            style={[styles.dropdown, { backgroundColor: colors.card, borderColor: colors.border }]}
+            dropDownContainerStyle={[styles.dropdownContainer, { backgroundColor: colors.card, borderColor: colors.border }]}
+            textStyle={[styles.dropdownText, { color: colors.text }]}
+            placeholderStyle={[styles.dropdownPlaceholder, { color: colors.subText }]}
             flatListProps={{ nestedScrollEnabled: true }}
             listMode="SCROLLVIEW"
           />
           {errorSelectedState ? <Text style={styles.errorText}>{errorSelectedState}</Text> : null}
 
-          <Text style={styles.label}>{t('city')}</Text>
-          <View style={styles.inputWrapper}>
-            <Icons name="location-outline" size={20} color="#999" style={styles.icon} />
+          <Text style={[styles.label, { color: colors.text }]}>{t('city')}</Text>
+          <View style={[styles.inputWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            <Icons name="location-outline" size={20} color={colors.subText} style={styles.icon} />
             <TextInput
               placeholder={t('city_placeholder')}
-              placeholderTextColor="#999"
+              placeholderTextColor={colors.subText}
               value={city}
-              onChangeText={(text) => {
-                setCity(text);
-                setErrorCity('');
-              }}
-              style={styles.inputWithIcon}
+              onChangeText={(text) => { setCity(text); setErrorCity(''); }}
+              style={[styles.inputWithIcon, { color: colors.text }]}
             />
           </View>
           {errorCity ? <Text style={styles.errorText}>{errorCity}</Text> : null}
 
-          <Text style={styles.label}>{t('password')}</Text>
-          <View style={styles.inputWrapper}>
-            <Icons name="lock-closed-outline" size={20} color="#999" style={styles.icon} />
+          <Text style={[styles.label, { color: colors.text }]}>{t('password')}</Text>
+          <View style={[styles.inputWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            <Icons name="lock-closed-outline" size={20} color={colors.subText} style={styles.icon} />
             <TextInput
               placeholder={t('password_placeholder')}
-              placeholderTextColor="#999"
+              placeholderTextColor={colors.subText}
               value={password}
               secureTextEntry={!showPassword}
-              onChangeText={(text) => {
-                setPassword(text);
-                setErrorPassword('');
-              }}
-              style={styles.inputWithIcon}
+              onChangeText={(text) => { setPassword(text); setErrorPassword(''); }}
+              style={[styles.inputWithIcon, { color: colors.text }]}
             />
             <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-              <Icons name={showPassword ? 'eye-outline' : 'eye-off-outline'} size={20} color="#999" />
+              <Icons name={showPassword ? 'eye-outline' : 'eye-off-outline'} size={20} color={colors.subText} />
             </TouchableOpacity>
           </View>
           {errorPassword ? <Text style={styles.errorText}>{errorPassword}</Text> : null}
 
-          <Text style={styles.label}>{t('confirm_password')}</Text>
-          <View style={styles.inputWrapper}>
-            <Icons name="lock-closed-outline" size={20} color="#999" style={styles.icon} />
+          <Text style={[styles.label, { color: colors.text }]}>{t('confirm_password')}</Text>
+          <View style={[styles.inputWrapper, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            <Icons name="lock-closed-outline" size={20} color={colors.subText} style={styles.icon} />
             <TextInput
               placeholder={t('reenter_password')}
-              placeholderTextColor="#999"
+              placeholderTextColor={colors.subText}
               value={confirmPassword}
               secureTextEntry={!showConfirmPassword}
-              onChangeText={(text) => {
-                setConfirmPassword(text);
-                setErrorConfirmPassword('');
-              }}
-              style={styles.inputWithIcon}
+              onChangeText={(text) => { setConfirmPassword(text); setErrorConfirmPassword(''); }}
+              style={[styles.inputWithIcon, { color: colors.text }]}
             />
             <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
-              <Icons name={showConfirmPassword ? 'eye-outline' : 'eye-off-outline'} size={20} color="#999" />
+              <Icons name={showConfirmPassword ? 'eye-outline' : 'eye-off-outline'} size={20} color={colors.subText} />
             </TouchableOpacity>
           </View>
           {errorConfirmPassword ? <Text style={styles.errorText}>{errorConfirmPassword}</Text> : null}
@@ -324,7 +257,7 @@ const CreateAccount = ({ navigation }) => {
           </TouchableOpacity>
 
           <View style={styles.signInRow}>
-            <Text style={styles.signInText}>{t('already_have_account')} </Text>
+            <Text style={[styles.signInText, { color: colors.text }]}>{t('already_have_account')} </Text>
             <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
               <Text style={styles.signInLink}>{t('sign_in')}</Text>
             </TouchableOpacity>
@@ -446,22 +379,22 @@ const styles = StyleSheet.create({
     color: '#E8751A',
     fontWeight: 'bold',
   },
-  dropdown: { 
-    backgroundColor: '#1a1a1a', 
-    borderColor: 'gray', 
-    borderRadius: 10, 
-    marginBottom: 4 
+  dropdown: {
+    backgroundColor: '#1a1a1a',
+    borderColor: 'gray',
+    borderRadius: 10,
+    marginBottom: 4
   },
   dropdownContainer: {
-    backgroundColor: '#1a1a1a', 
-    borderColor: 'gray', 
-    borderRadius: 10 
+    backgroundColor: '#1a1a1a',
+    borderColor: 'gray',
+    borderRadius: 10
   },
-  dropdownText: { 
-    color: '#fff', 
-    fontSize: 16 
+  dropdownText: {
+    color: '#fff',
+    fontSize: 16
   },
-  dropdownPlaceholder: { 
-    color: '#999' 
+  dropdownPlaceholder: {
+    color: '#999'
   },
 });

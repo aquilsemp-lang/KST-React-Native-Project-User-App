@@ -4,10 +4,12 @@ import { useAuthStore } from '../store/authStore';
 import { rentHistory } from '../services/auth';
 import Icons from 'react-native-vector-icons/Feather';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const RentHistory = ({navigation}) => {
 
     const { t } = useTranslation();
+    const { colors } = useTheme();
 
     const token = useAuthStore((state) => state.token);
     const [rentData, setRentData] = useState([]);
@@ -37,7 +39,7 @@ const RentHistory = ({navigation}) => {
 
     if(loading){
         return(
-            <View style={styles.centered}>
+            <View style={[styles.centered, { backgroundColor: colors.background }]}>
                 <ActivityIndicator size="large" color="#E8751A"/>
             </View>
         );
@@ -45,18 +47,18 @@ const RentHistory = ({navigation}) => {
 
     if(rentData.length===0){
         return(
-            <View style={styles.centered}>
-                <Text style={styles.emptyText}>
+            <View style={[styles.centered, { backgroundColor: colors.background }]}>
+                <Text style={[styles.emptyText, { color: colors.subText }]}>
                     {t('no_rent_history')}
                 </Text>
             </View>
-        )
+        );
     }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
 
-        <Text style={styles.Title}>
+        <Text style={[styles.Title, { color: colors.text }]}>
             {t('rent_history')}
         </Text>
 
@@ -74,7 +76,7 @@ const RentHistory = ({navigation}) => {
                     })}
                 >
 
-                <View style={styles.movieCard}>
+                <View style={[styles.movieCard, { backgroundColor: colors.card }]}>
 
                     <Image
                         source={{ uri: item.poster_image}}
@@ -84,25 +86,25 @@ const RentHistory = ({navigation}) => {
 
                     <View style={styles.movieInfo}>
 
-                        <Text style={styles.movieTitle} numberOfLines={1}>
+                        <Text style={[styles.movieTitle, { color: colors.text }]} numberOfLines={1}>
                             {item.movie_name}
                         </Text>
 
                         <View style={styles.metaRow}>
 
-                            <Text style={styles.movieMeta}>
+                            <Text style={[styles.movieMeta, { color: colors.subText }]}>
                                 {formatDate(item.purchased_at)} •
                             </Text>
 
-                            <Icons name="clock" size={10} color="#999" style={styles.icon} />
+                            <Icons name="clock" size={10} color={colors.subText} style={styles.icon} />
 
-                            <Text style={styles.movieMeta}>
+                            <Text style={[styles.movieMeta, { color: colors.subText }]}>
                                 {item.access_duration_mins > 60
                                     ? `${Math.floor(item.access_duration_mins / 60)}h`
                                     : `${item.access_duration_mins}m`} {t('access')} •
                             </Text>
 
-                            <Text style={styles.movieMeta}>
+                            <Text style={[styles.movieMeta, { color: colors.subText }]}>
                                 {item.duration}
                             </Text>
 
@@ -111,14 +113,14 @@ const RentHistory = ({navigation}) => {
                         <View>
                             {item.genres?.map((g) => (
                                 <View key={g.id}>
-                                    <Text style={styles.movieGenre}>
+                                    <Text style={[styles.movieGenre, { color: colors.subText }]}>
                                         {g.name}
                                     </Text>
                                 </View>
                             ))}
                         </View>
 
-                        <Text style={styles.moviePrice}>
+                        <Text style={[styles.moviePrice, { color: colors.text }]}>
                             ₹{item.price}
                         </Text>
 
@@ -126,8 +128,8 @@ const RentHistory = ({navigation}) => {
 
                 </View>
                 </TouchableOpacity>
-            )}        
-        />  
+            )}
+        />
     </View>
   );
 };
@@ -165,7 +167,7 @@ const styles= StyleSheet.create({
     },
     thumbnail:{
         width: 90, height: 110,
-        borderRadius: 8 
+        borderRadius: 8
     },
     movieInfo:{
         flex:1,
@@ -173,15 +175,15 @@ const styles= StyleSheet.create({
     },
     movieTitle:{
         color:'#fff',
-        fontSize: 16, 
+        fontSize: 16,
         fontWeight: 'bold',
         marginBottom: 4,
     },
-    movieMeta: { 
-        color: '#999', 
-        fontSize: 12, 
+    movieMeta: {
+        color: '#999',
+        fontSize: 12,
         marginBottom: 2,
-        marginLeft:2 
+        marginLeft:2
     },
     metaRow:{
         flexDirection: 'row',
@@ -192,10 +194,10 @@ const styles= StyleSheet.create({
         marginTop: 4
     },
     movieGenre:{
-        color: '#999', 
-        fontSize: 12, 
+        color: '#999',
+        fontSize: 12,
         marginBottom: 2,
-        marginLeft:2, 
+        marginLeft:2,
         marginTop: 6
     },
     moviePrice:{
@@ -204,7 +206,5 @@ const styles= StyleSheet.create({
         textAlign: 'right',
         color: 'white',
         position:'static'
-        
     }
-
 });

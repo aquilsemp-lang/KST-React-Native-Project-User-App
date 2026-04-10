@@ -15,20 +15,20 @@ const UserLoginScreen = ({ navigation }) => {
   const logout = useAuthStore((state) => state.logout);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { colors, isDarkMode, toggleTheme } = useTheme();
 
   const token = useAuthStore((state) => state.token);
   console.log('User token:', token);
 
   return (
-    <ScrollView>
-      <View style={styles.container}>
+    <ScrollView style={{ backgroundColor: colors.background }}> 
+      <View style={[styles.container, { backgroundColor: colors.background }]}> 
 
         <View style={styles.profileHeader}>
           <View>
             <Icons
               name="person"
-              size={60}
+              size={50}
               color="#E8751A"
               style={{
                 borderRadius: 40,
@@ -41,88 +41,86 @@ const UserLoginScreen = ({ navigation }) => {
           </View>
 
           <View>
-            <Text style={styles.name}>
+            <Text style={[styles.name, { color: colors.text }]}> 
               {user?.first_name} {user?.last_name}
             </Text>
 
             <View style={styles.mobileRow}>
-              <Icons name="mail-outline" size={22} color="#999" style={styles.icon} />
-              <Text style={styles.mobileNumber}>{user?.email}</Text>
+              <Icons name="mail-outline" size={22} color={colors.subText} style={styles.icon} /> 
+              <Text style={[styles.mobileNumber, { color: colors.subText }]}>{user?.email}</Text> 
             </View>
 
             <View style={styles.mobileRow}>
-              <Icons name="call-outline" size={22} color="#999" style={styles.icon} />
-              <Text style={styles.mobileNumber}>{user?.mobile}</Text>
+              <Icons name="call-outline" size={22} color={colors.subText} style={styles.icon} /> 
+              <Text style={[styles.mobileNumber, { color: colors.subText }]}>{user?.mobile}</Text> 
             </View>
           </View>
         </View>
 
         {/* Account Section */}
+        <Text style={[styles.label, { color: colors.subText }]}>{t('account')}</Text> 
 
-        <Text style={styles.label}>{t('account')}</Text>
-
-        <View style={styles.listView}>
+        <View style={[styles.listView, { backgroundColor: colors.card, borderColor: colors.border }]}> 
 
           <TouchableOpacity
-            style={styles.subListView}
+            style={[styles.subListView, { backgroundColor: colors.card, borderColor: colors.border }]} 
             onPress={() => navigation.navigate('WatchlistScreen')}
           >
-            <Icons name="bookmark-outline" size={28} color="white" style={styles.icon} />
-            <Text style={styles.listText}>{t('my_watchlist')}</Text>
-            <Icons name="chevron-forward" size={24} color="white" style={styles.chevron} />
+            <Icons name="bookmark-outline" size={28} color={colors.icon} style={styles.icon} /> 
+            <Text style={[styles.listText, { color: colors.text }]}>{t('my_watchlist')}</Text> 
+            <Icons name="chevron-forward" size={24} color={colors.icon} style={styles.chevron} /> 
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.subListView}
+            style={[styles.subListView, { backgroundColor: colors.card, borderColor: colors.border }]} 
             onPress={() => navigation.navigate('RentHistory')}
           >
-            <Icons name="timer-outline" size={28} color="white" style={styles.icon} />
-            <Text style={styles.listText}>{t('rent_history')}</Text>
-            <Icons name="chevron-forward" size={24} color="white" style={styles.chevron} />
+            <Icons name="timer-outline" size={28} color={colors.icon} style={styles.icon} /> 
+            <Text style={[styles.listText, { color: colors.text }]}>{t('rent_history')}</Text> 
+            <Icons name="chevron-forward" size={24} color={colors.icon} style={styles.chevron} /> 
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.subListView}
+            style={[styles.subListView, { backgroundColor: colors.card, borderColor: colors.border }]} 
             onPress={() => navigation.navigate('RecordingScreen')}
           >
-            <Icons name="videocam-outline" size={28} color="white" style={styles.icon} />
-            <Text style={styles.listText}>{t('my_recordings')}</Text>
-            <Icons name="chevron-forward" size={24} color="white" style={styles.chevron} />
+            <Icons name="videocam-outline" size={28} color={colors.icon} style={styles.icon} /> 
+            <Text style={[styles.listText, { color: colors.text }]}>{t('my_recordings')}</Text> 
+            <Icons name="chevron-forward" size={24} color={colors.icon} style={styles.chevron} /> 
           </TouchableOpacity>
 
         </View>
 
         {/* Preferences Section */}
+        <Text style={[styles.label, { color: colors.subText }]}>{t('preferences')}</Text> 
 
-        <Text style={styles.label}>{t('preferences')}</Text>
-
-        <View style={styles.listView}>
+        <View style={[styles.listView, { backgroundColor: colors.card, borderColor: colors.border }]}> 
 
           <TouchableOpacity
-            style={styles.subListView}
+            style={[styles.subListView, { backgroundColor: colors.card, borderColor: colors.border }]} 
             onPress={() => navigation.navigate('ContentLanguage')}
           >
-            <Icon name="globe" size={26} color="white" style={styles.icon} />
-            <Text style={styles.listText}>{t('content_languages')}</Text>
-            <Icons name="chevron-forward" size={24} color="white" style={styles.chevron} />
+            <Icon name="globe" size={26} color={colors.icon} style={styles.icon} /> 
+            <Text style={[styles.listText, { color: colors.text }]}>{t('content_languages')}</Text>
+            <Icons name="chevron-forward" size={24} color={colors.icon} style={styles.chevron} /> 
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.subListView}
+            style={[styles.subListView, { backgroundColor: colors.card, borderColor: colors.border }]} 
             onPress={() => navigation.navigate('AppLanguage')}
           >
-            <Icons name="language-outline" size={28} color="white" style={styles.icon} />
-            <Text style={styles.listText}>{t('app_language')}</Text>
-            <Icons name="chevron-forward" size={24} color="white" style={styles.chevron} />
+            <Icons name="language-outline" size={28} color={colors.icon} style={styles.icon} />
+            <Text style={[styles.listText, { color: colors.text }]}>{t('app_language')}</Text> 
+            <Icons name="chevron-forward" size={24} color={colors.icon} style={styles.chevron} /> 
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.subListView}>
-            <Icons name="moon-outline" size={24} color="white" style={styles.icon} />
-            <Text style={styles.listText}>{t('dark_mode')}</Text>
+          <TouchableOpacity style={[styles.subListView, { backgroundColor: colors.card, borderColor: colors.border }]}> 
+            <Icons name="moon-outline" size={24} color={colors.icon} style={styles.icon} />
+            <Text style={[styles.listText, { color: colors.text }]}>{t('dark_mode')}</Text> 
 
             <Switch
               trackColor={{ false: '#ccc', true: '#E8751A' }}
-              thumbColor="#fff"
+              thumbColor={isDarkMode ? '#E8751A' : '#fff'}
               value={isDarkMode}
               onValueChange={toggleTheme}
               style={{ marginRight: 8 }}
@@ -130,9 +128,7 @@ const UserLoginScreen = ({ navigation }) => {
           </TouchableOpacity>
 
         </View>
-
-        {/* Logout */}
-
+   
         <TouchableOpacity
           onPress={() => setShowLogoutModal(true)}
           style={styles.logoutButton}
@@ -140,8 +136,6 @@ const UserLoginScreen = ({ navigation }) => {
           <Icons name="log-out-outline" size={30} color="#E8751A" style={styles.icon} />
           <Text style={styles.ButtonText}>{t('logout')}</Text>
         </TouchableOpacity>
-
-        {/* Logout Modal */}
 
         <Modal
           visible={showLogoutModal}
@@ -151,13 +145,13 @@ const UserLoginScreen = ({ navigation }) => {
         >
           <View style={styles.overlay}>
 
-            <View style={styles.modalBox}>
+            <View style={[styles.modalBox, { backgroundColor: colors.card, borderColor: colors.border }]}> 
 
               <Icons name="log-out-outline" size={50} color="#E8751A" style={{ marginBottom: 12 }} />
 
-              <Text style={styles.modalTitle}>{t('logout')}</Text>
+              <Text style={[styles.modalTitle, { color: colors.text }]}>{t('logout')}</Text> 
 
-              <Text style={styles.modalMessage}>
+              <Text style={[styles.modalMessage, { color: colors.subText }]}> 
                 {t('logout_confirmation')}
               </Text>
 
@@ -165,9 +159,9 @@ const UserLoginScreen = ({ navigation }) => {
 
                 <TouchableOpacity
                   onPress={() => setShowLogoutModal(false)}
-                  style={styles.cancelButton}
+                  style={[styles.cancelButton, { borderColor: colors.border }]} 
                 >
-                  <Text style={styles.cancelText}>{t('cancel')}</Text>
+                  <Text style={[styles.cancelText, { color: colors.text }]}>{t('cancel')}</Text> 
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -191,12 +185,11 @@ const UserLoginScreen = ({ navigation }) => {
 
 export default UserLoginScreen;
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   container:{
     flex: 1,
     backgroundColor: '#1a1a1a',
   },
-
   profileHeader:{
     flexDirection: 'row',
     padding: 20,
@@ -233,7 +226,7 @@ const styles=StyleSheet.create({
     marginBottom: 8,
   },
   listView:{
-    borderRadius: 12,
+    borderRadius: 7,
     borderWidth: 2,
     borderColor: 'gray',
     margin: 14,
@@ -247,6 +240,7 @@ const styles=StyleSheet.create({
     height: 70,
     backgroundColor:'#1a1a1a',
     borderTopWidth: 1,
+    borderBottomWidth: 1,
     borderColor: 'gray',
   },
   listText:{
@@ -267,7 +261,7 @@ const styles=StyleSheet.create({
   logoutButton:{
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center', 
+    justifyContent: 'center',
     marginTop: 40,
     marginBottom: 30,
   },
@@ -284,7 +278,6 @@ const styles=StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   modalBox: {
     backgroundColor: '#1a1a1a',
     borderRadius: 16,
@@ -308,7 +301,6 @@ const styles=StyleSheet.create({
     marginBottom: 24,
     lineHeight: 22,
   },
-
   buttonRow: {
     flexDirection: 'row',
     gap: 12,

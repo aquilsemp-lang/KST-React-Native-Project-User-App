@@ -6,10 +6,12 @@ import { useDashboardStore } from '../store/dashboardStore';
 import { useAuthStore } from '../store/authStore';
 import MovieThumbnail from '../globalComponents/MovieThumbnail';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const Upcoming = ({navigation}) => {
 
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   const dashboardData = useDashboardStore((state) => state.dashboardData);
   const token = useAuthStore((state) => state.token);
@@ -24,7 +26,7 @@ const Upcoming = ({navigation}) => {
 
   if (loading) {
     return (
-      <View style={styles.centered}>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
         <ActivityIndicator size="large" color="#E8751A" />
       </View>
     );
@@ -32,8 +34,8 @@ const Upcoming = ({navigation}) => {
 
   if (!dashboardData || upcomingMovies.length === 0) {
     return (
-      <View style={styles.centered}>
-        <Text style={styles.emptyText}>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
+        <Text style={[styles.emptyText, { color: colors.subText }]}>
           {t('no_upcoming_movies')}
         </Text>
       </View>
@@ -48,7 +50,7 @@ const Upcoming = ({navigation}) => {
   };
 
   const renderMovie = ({ item, index }) => (
-    <View style={styles.movieCard}>
+    <View style={[styles.movieCard, { backgroundColor: colors.card }]}>
       <View>
 
         <MovieThumbnail
@@ -59,7 +61,7 @@ const Upcoming = ({navigation}) => {
           onPress={() => navigation.navigate('MovieDetail', { movieId: item.id })}
         />
 
-        {index===0 &&(
+        {index === 0 && (
           <Image
             source={require('../images/app_logo.png')}
             style={styles.overlayLogo}
@@ -71,22 +73,22 @@ const Upcoming = ({navigation}) => {
 
       <View style={styles.movieInfo}>
 
-        <Text style={styles.movieTitle} numberOfLines={1}>
+        <Text style={[styles.movieTitle, { color: colors.text }]} numberOfLines={1}>
           {item.name}
         </Text>
 
         <View style={styles.metaRow}>
-          <Text style={styles.metaText}>{item.language}</Text>
+          <Text style={[styles.metaText, { color: colors.subText }]}>{item.language}</Text>
 
-          <Text style={styles.metaDot}>•</Text>
+          <Text style={[styles.metaDot, { color: colors.subText }]}>•</Text>
 
-          <IconClock name="clock" size={13} color="#999" style={{ marginRight: 4 , marginTop:2 }} />
-          <Text style={styles.metaText}>{item.duration}</Text>
+          <IconClock name="clock" size={13} color={colors.subText} style={{ marginRight: 4, marginTop: 2 }} />
+          <Text style={[styles.metaText, { color: colors.subText }]}>{item.duration}</Text>
 
-          <Text style={styles.metaDot}>•</Text>
+          <Text style={[styles.metaDot, { color: colors.subText }]}>•</Text>
 
-          <Icons name="star" size={13} color="#999" style={{ marginRight: 4 }} />
-          <Text style={styles.metaText}>{item.content_rating}+</Text>
+          <Icons name="star" size={13} color={colors.subText} style={{ marginRight: 4 }} />
+          <Text style={[styles.metaText, { color: colors.subText }]}>{item.content_rating}+</Text>
         </View>
 
         <Text style={styles.releaseDate}>
@@ -94,7 +96,7 @@ const Upcoming = ({navigation}) => {
         </Text>
 
         {item.description ? (
-          <Text style={styles.movieDesc}>
+          <Text style={[styles.movieDesc, { color: colors.text }]}>
             {stripHtml(item.description)}
           </Text>
         ) : null}
@@ -115,7 +117,7 @@ const Upcoming = ({navigation}) => {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <FlatList
         data={upcomingMovies}
         keyExtractor={(item) => item.id.toString()}
@@ -130,9 +132,9 @@ const Upcoming = ({navigation}) => {
 export default Upcoming;
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: '#000', 
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
   },
   centered: {
     flex: 1,
@@ -142,7 +144,6 @@ const styles = StyleSheet.create({
   },
   list: { paddingBottom: 40 },
   emptyText: { color: '#999', fontSize: 16 },
-
   movieCard: {
     marginHorizontal: 8,
     marginBottom: 8,
@@ -152,16 +153,14 @@ const styles = StyleSheet.create({
     marginTop: 45,
   },
   thumbnailContainer: {
-  width: '100%',
-  height: 200,
-  position: 'absolute', 
-},
-
+    width: '100%',
+    height: 200,
+    position: 'absolute',
+  },
   thumbnail: {
     width: '100%',
     height: 250,
   },
-
   movieInfo: {
     padding: 14,
   },
@@ -171,7 +170,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 6,
   },
-
   metaRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -185,13 +183,11 @@ const styles = StyleSheet.create({
     color: '#999',
     marginHorizontal: 6,
   },
-
   releaseDate: {
     fontSize: 13,
     color: '#E8751A',
     marginBottom: 8,
   },
-
   accessBadge: {
     alignSelf: 'flex-start',
     backgroundColor: '#2a2a2a',
@@ -200,7 +196,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginBottom: 10,
   },
-
   trailerButton: {
     backgroundColor: '#E8751A',
     paddingVertical: 15,
@@ -214,17 +209,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   movieDesc: {
-  fontSize: 14,
-  color: '#fff',
-  lineHeight: 25,
-  marginBottom: 8,
-},
-overlayLogo:{
-  position: 'absolute',
-  top:10,
-  left:5,
-  width: 140,
-  height:50,
-  opacity: 0.9,
-},
+    fontSize: 14,
+    color: '#fff',
+    lineHeight: 25,
+    marginBottom: 8,
+  },
+  overlayLogo: {
+    position: 'absolute',
+    top: 10,
+    left: 5,
+    width: 140,
+    height: 50,
+    opacity: 0.9,
+  },
 });

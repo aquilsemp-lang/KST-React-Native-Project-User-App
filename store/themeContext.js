@@ -33,7 +33,7 @@ export const ThemeProvider = ({ children }) => {
       card: '#ffffff',
       text: '#000',
       subText: '#555',
-      border: '#ccc',
+      border: '#1a1a1a',
       icon: '#333',
     },
   };

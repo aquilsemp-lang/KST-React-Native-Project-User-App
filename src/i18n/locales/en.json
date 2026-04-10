@@ -148,5 +148,22 @@
 
   "watchlist_empty_desc": "Add movies and shows to your watchlist to keep track of what you want to watch.",
   "remove_watchlist": "Remove from Watchlist",
-  "remove_watchlist_message": "Are you sure you want to remove"
+  "remove_watchlist_message": "Are you sure you want to remove",
+
+  "recording": "recording",
+  "duration": "Duration",
+  "call_id": "Call ID",
+  "call_recording": "Call Recording",
+  "recorded": "Recorded",
+  "play": "Play",
+  "Share" : "Share",
+
+  "error": "Error",
+  "video_open_error": "Could not open video player",
+  "seconds": "seconds",
+  "loading_recordings": "Loading recordings...",
+  "retry": "Retry",
+  "no_recordings_found": "No recordings found",
+  "error_loading_recordings": "Failed to load recordings"
+
 }

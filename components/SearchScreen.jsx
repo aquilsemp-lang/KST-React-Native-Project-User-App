@@ -4,10 +4,12 @@ import Icons from 'react-native-vector-icons/Ionicons';
 import { get_search, get_search_list, save_search_data } from '../services/auth';
 import { useAuthStore } from '../store/authStore';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const SearchScreen = ({ navigation }) => {
 
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   const user  = useAuthStore((state) => state.user);
   const token = useAuthStore((state) => state.token);
@@ -55,15 +57,12 @@ const SearchScreen = ({ navigation }) => {
 
   const handleSearch = (text) => {
     setQuery(text);
-
     if (text.length === 0) {
       setFilteredMovies(movies);
       setShowHistory(true);
       return;
     }
-
     setShowHistory(false);
-
     const filtered = movies.filter((movie) =>
       (movie?.name || '').toLowerCase().includes(text.toLowerCase())
     );
@@ -86,7 +85,7 @@ const SearchScreen = ({ navigation }) => {
     <TouchableOpacity
       style={styles.movieCard}
       onPress={async () => {
-       try {
+        try {
           if (query.length > 0 && user?.id) {
             await save_search_data(token, user.id, query, 1, 'movie');
             const response = await get_search_list(user.id, token);
@@ -110,41 +109,41 @@ const SearchScreen = ({ navigation }) => {
       style={styles.historyItem}
       onPress={() => handleHistoryTap(item)}
     >
-      <Icons name="time-outline" size={16} color="#666" />
-      <Text style={styles.historyText}>{item?.search_query || ''}</Text>
+      <Icons name="time-outline" size={16} color={colors.subText} />
+      <Text style={[styles.historyText, { color: colors.subText }]}>{item?.search_query || ''}</Text>
     </TouchableOpacity>
   );
 
   if (loading) {
     return (
-      <View style={styles.centered}>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
         <ActivityIndicator size="large" color="#E8751A" />
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
 
-      <View style={styles.searchContainer}>
-        <Icons name="search-outline" size={20} color="#aaa" />
+      <View style={[styles.searchContainer, { backgroundColor: colors.card }]}>
+        <Icons name="search-outline" size={20} color={colors.subText} />
         <TextInput
-          style={styles.searchInput}
+          style={[styles.searchInput, { color: colors.text }]}
           placeholder={t('search_placeholder')}
-          placeholderTextColor="#999"
+          placeholderTextColor={colors.subText}
           value={query}
           onChangeText={handleSearch}
         />
         {query.length > 0 && (
           <TouchableOpacity onPress={clearSearch}>
-            <Icons name="close-circle" size={20} color="#aaa" />
+            <Icons name="close-circle" size={20} color={colors.subText} />
           </TouchableOpacity>
         )}
       </View>
 
       {showHistory && history.length > 0 && (
         <View style={styles.historyContainer}>
-          <Text style={styles.historyLabel}>
+          <Text style={[styles.historyLabel, { color: colors.subText }]}>
             {t('recent_searches')}
           </Text>
 
@@ -166,14 +165,14 @@ const SearchScreen = ({ navigation }) => {
         contentContainerStyle={{ paddingBottom: 40, paddingTop: 10 }}
         ListHeaderComponent={
           !showHistory && (
-            <Text style={styles.resultCount}>
+            <Text style={[styles.resultCount, { color: colors.subText }]}>
               {filteredMovies.length} {t('results')}
             </Text>
           )
         }
         ListEmptyComponent={
           <View style={styles.noResultContainer}>
-            <Text style={styles.noResults}>
+            <Text style={[styles.noResults, { color: colors.text }]}>
               {t('no_results')}
             </Text>
           </View>

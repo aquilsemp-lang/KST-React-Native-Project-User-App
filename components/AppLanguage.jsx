@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native
 import { useTranslation } from 'react-i18next';
 import i18n, { saveLanguage } from '../src/i18n';
 import Icons from 'react-native-vector-icons/Ionicons';
+import { useTheme } from '../store/themeContext';
 
 const LANGUAGES = [
   { code: 'en', label: 'English', native: 'English'  },
@@ -17,8 +18,9 @@ const LANGUAGES = [
 
 export default function AppLanguage() {
   const { t } = useTranslation();
-  const [selected, setSelected] = useState(i18n.language);  // preview selection
-  const [saved, setSaved] = useState(i18n.language);        // actually applied language
+  const { colors } = useTheme();
+  const [selected, setSelected] = useState(i18n.language);
+  const [saved, setSaved] = useState(i18n.language);
 
   const handleSave = async () => {
     await i18n.changeLanguage(selected);
@@ -27,22 +29,22 @@ export default function AppLanguage() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{t('select_language')}</Text>
-      <Text style={styles.subTitle}>{t('language_description')}</Text>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
+      <Text style={[styles.title, { color: colors.text }]}>{t('select_language')}</Text>
+      <Text style={[styles.subTitle, { color: colors.subText }]}>{t('language_description')}</Text>
 
       <FlatList
         data={LANGUAGES}
         keyExtractor={(item) => item.code}
         renderItem={({ item }) => (
           <TouchableOpacity
-            style={[styles.item, selected === item.code && styles.selected]}
-            onPress={() => setSelected(item.code)}  // only updates preview, not applied
+            style={[styles.item, { backgroundColor: colors.card }, selected === item.code && styles.selected]}
+            onPress={() => setSelected(item.code)}
           >
-            <View style={styles.iconBox}>
-              <Icons name="language-outline" size={24} color="white" />
+            <View style={[styles.iconBox, { backgroundColor: colors.border }]}>
+              <Icons name="language-outline" size={24} color={colors.icon} />
             </View>
-            <Text style={styles.native}>{item.native}</Text>
+            <Text style={[styles.native, { color: colors.text }]}>{item.native}</Text>
             <View style={[styles.checkBox, selected === item.code && styles.checkBoxSelected]}>
               {selected === item.code && (
                 <Icons name="checkmark" size={16} color="#fff" />

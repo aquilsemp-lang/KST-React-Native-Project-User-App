@@ -4,10 +4,12 @@ import { useDashboardStore } from '../store/dashboardStore';
 import {get_search, get_search_list} from '../services/auth';
 import Icons from 'react-native-vector-icons/Ionicons';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from '../store/themeContext';
 
 const Home = ({navigation}) => {
 
   const { t } = useTranslation();
+  const { colors } = useTheme();
 
   const dashboardData = useDashboardStore((state) => state.dashboardData);
   const loading = useDashboardStore((state) => state.loading);
@@ -36,7 +38,7 @@ const Home = ({navigation}) => {
 
   if (!isHydrated) {
     return (
-      <View style={styles.centered}>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
         <ActivityIndicator size="large" color="#E8751A" />
       </View>
     );
@@ -44,32 +46,32 @@ const Home = ({navigation}) => {
 
   if (!dashboardData) {
     return (
-      <View style={styles.centered}>
-        <Text style={styles.emptyText}>{t('no_movies_available')}</Text>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
+        <Text style={[styles.emptyText, { color: colors.subText }]}>{t('no_movies_available')}</Text>
       </View>
     );
   }
 
   if (trendingMovies.length === 0) {
     return (
-      <View style={styles.centered}>
-        <Text style={styles.emptyText}>{t('no_trending_movies')}</Text>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
+        <Text style={[styles.emptyText, { color: colors.subText }]}>{t('no_trending_movies')}</Text>
       </View>
     );
   }
 
   if (payperviewMovies.length === 0) {
     return (
-      <View style={styles.centered}>
-        <Text style={styles.emptyText}>{t('no_pay_per_view_movies')}</Text>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
+        <Text style={[styles.emptyText, { color: colors.subText }]}>{t('no_pay_per_view_movies')}</Text>
       </View>
     );
   }
 
   if (viewedMovies.length === 0) {
     return (
-      <View style={styles.centered}>
-        <Text style={styles.emptyText}>{t('no_viewed_movies')}</Text>
+      <View style={[styles.centered, { backgroundColor: colors.background }]}>
+        <Text style={[styles.emptyText, { color: colors.subText }]}>{t('no_viewed_movies')}</Text>
       </View>
     );
   }
@@ -87,11 +89,11 @@ const Home = ({navigation}) => {
   );
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={[styles.container, { backgroundColor: colors.background }]}>
 
       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
 
-        <Text style={styles.heading1}>
+        <Text style={[styles.heading1, { color: colors.text }]}>
           {t('trending_movies')}
         </Text>
 
@@ -102,11 +104,11 @@ const Home = ({navigation}) => {
             name="search-outline"
             size={28}
             style={{
-              color: 'white',
+              color: colors.icon,
               borderRadius: 20,
               borderWidth: 1,
-              borderColor: '#1a1a1a',
-              backgroundColor: '#2a2a2a',
+              borderColor: colors.border,
+              backgroundColor: colors.card,
               padding: 6,
               marginTop: 40,
               marginRight: 10,
@@ -127,7 +129,7 @@ const Home = ({navigation}) => {
         contentContainerStyle={{ paddingHorizontal: 8, paddingBottom: 30 }}
       />
 
-      <Text style={styles.heading2}>
+      <Text style={[styles.heading2, { color: colors.text }]}>
         {t('pay_per_view')}
       </Text>
 
@@ -141,7 +143,7 @@ const Home = ({navigation}) => {
         contentContainerStyle={{ paddingHorizontal: 8, paddingBottom: 30 }}
       />
 
-      <Text style={styles.heading2}>
+      <Text style={[styles.heading2, { color: colors.text }]}>
         {t('viewed_movies')}
       </Text>
 
@@ -201,7 +203,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   movieCard:{
-    marginRight: 12, 
+    marginRight: 12,
     width:160,
     height: 120,
     borderRadius: 10,
