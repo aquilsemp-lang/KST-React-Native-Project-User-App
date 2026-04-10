@@ -36,6 +36,13 @@ const Home = ({navigation}) => {
     )
     .filter(Boolean);
 
+    const continueWatchingMoviesIds = dashboardData?.continue_watching || [];
+  const continueWatchingMovies = continueWatchingMoviesIds
+    .map((id) =>
+      dashboardData?.movie_data?.find((movie) => Number(movie.id) === Number(id))
+    )
+    .filter(Boolean);
+
   if (!isHydrated) {
     return (
       <View style={[styles.centered, { backgroundColor: colors.background }]}>
@@ -105,7 +112,7 @@ const Home = ({navigation}) => {
             size={28}
             style={{
               color: colors.icon,
-              borderRadius: 20,
+              borderRadius: 40,
               borderWidth: 1,
               borderColor: colors.border,
               backgroundColor: colors.card,
@@ -156,6 +163,20 @@ const Home = ({navigation}) => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 8, paddingBottom: 30 }}
       />
+
+      {/* <Text style={[styles.heading2, { color: colors.text }]}>
+        {t('continue_movies')}
+      </Text>
+
+      <FlatList
+        data={continueWatchingMovies}
+        styles={styles.movieCard}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderMovie}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{ paddingHorizontal: 8, paddingBottom: 30 }}
+      /> */}
 
     </ScrollView>
   );

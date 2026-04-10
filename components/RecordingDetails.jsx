@@ -1,11 +1,13 @@
 import React, { useCallback, useRef } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Linking, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import BottomSheet, { BottomSheetView, BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import Icons from 'react-native-vector-icons/Octicons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Share from 'react-native-share';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../store/themeContext';
+import RNFS from 'react-native-fs';
+import { useToastStore } from '../store/toastStore';
 
 const formatDuration = (seconds, t) => {
     if (!seconds) return `0 ${t('seconds')}`;
@@ -35,6 +37,7 @@ const getInitials = (name) => {
 };
 
 export default function RecordingDetails({ navigation, route }) {
+    const {showToast}  = useToastStore();
     const { recording } = route.params;
     const bottomSheetRef = useRef(null);
     const snapPoints = ['50%'];
@@ -58,19 +61,27 @@ export default function RecordingDetails({ navigation, route }) {
         try {
             await Linking.openURL(recording.recording_url);
         } catch (err) {
-            Alert.alert(t('error'), t('video_open_error'));
+            showToast(t('video_open_error'), 'error')
+
         }
     };
 
-    const handleShare = async () => {
-        try {
-            await Share.open({
-                url: recording.recording_url
-            });
-        } catch (error) {
-            console.log('Share cancelled or failed:', error.message);
-        }
-    };
+  const handleShare = async () => {
+    try {
+        const localPath = `${RNFS.CachesDirectoryPath}/recording_${recording.call_id}.mp4`;
+        await RNFS.downloadFile({
+            fromUrl: recording.recording_url,
+            toFile: localPath,
+        }).promise;
+
+        await Share.open({
+            url: `file://${localPath}`,
+            type: 'video/mp4',
+        });
+    } catch (error) {
+        console.log('Share error:', error.message);
+    }
+};  
 
     return (
         <View style={styles.overlay}>
@@ -128,7 +139,7 @@ export default function RecordingDetails({ navigation, route }) {
                         </View>
                     </View>
 
-                    <View style={{flexDirection:'row', gap:6}}>
+                    <View style={{flexDirection:'row', gap:20}}>
                         <TouchableOpacity style={styles.playButton} onPress={handlePlayVideo}>
                             <Icon name="play-outline" size={24} color='#fff'/>
                             <Text style={styles.playButtonText}>
@@ -260,7 +271,7 @@ const styles = StyleSheet.create({
         width: '45%',
         gap: 10,
         marginTop: 16,
-        marginHorizontal: 10,
+        marginHorizontal: 2,
     },
     playButtonText: {
         color: '#fff',
@@ -277,6 +288,7 @@ const styles = StyleSheet.create({
         width:'45%',
         gap: 10,
         marginTop: 16,
+        marginHorizontal: 2,
     },
     shareButtonText: {
         color: '#fff',

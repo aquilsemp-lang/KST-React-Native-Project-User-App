@@ -40,17 +40,6 @@ const getInitials = (name) => {
 const RecordingCard = ({ item, onPlay, t }) => {
     const { colors } = useTheme();
 
-//     const handleShare = async () => {
-//     try {
-//         await Share.open({
-//             url: item.recording_url,
-//             type: 'video/mp4',
-//         });
-//     } catch (error) {
-//         console.log('Share error:', error.message);
-//     }
-// };
-
 const handleShare = async () => {
     try {
         const localPath = `${RNFS.CachesDirectoryPath}/recording_${item.call_id}.mp4`;
@@ -231,7 +220,7 @@ const styles = StyleSheet.create({
         width: 42,
         height: 42,
         borderRadius: 21,
-        backgroundColor: '#fff',
+        backgroundColor: '#ccc',
         alignItems: 'center',
         justifyContent: 'center',
     },

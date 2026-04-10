@@ -4,14 +4,15 @@ import React from 'react';
 import Icons from 'react-native-vector-icons/Ionicons';
 import Share from 'react-native-share';
 
-const MovieThumbnail = ({ imageUrl, movieName, width = 160, height = 200, borderRadius = 8, onPress }) => {
+const MovieThumbnail = ({ imageUrl, movieName, movieId, width = 160, height = 200, borderRadius = 8, onPress }) => {
+  
 
   const handleShare = async () => {
     try {
       await Share.open({
         title: movieName || 'Check out this movie!',
         message: `Watch "${movieName}" on KissaShuru!`,
-        url: imageUrl, // 👈 shares the thumbnail image URL
+        url: imageUrl,
       });
     } catch (error) {
       console.log('Share cancelled or failed:', error.message);
@@ -26,7 +27,6 @@ const MovieThumbnail = ({ imageUrl, movieName, width = 160, height = 200, border
           style={{ width, height }}
           resizeMode="cover"
         />
-        {/* 👇 Share button on top right */}
         <TouchableOpacity
           style={styles.shareButton}
           onPress={handleShare}
